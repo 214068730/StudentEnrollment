@@ -11,14 +11,11 @@ public class Subject implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-
 	private long subjectID;
 
-	
 	private String subjectName;
 
-	
-	private Lecturer lecturer; 
+	private Lecturer lecturer;
 
 	public long getSubjectID() {
 		return subjectID;

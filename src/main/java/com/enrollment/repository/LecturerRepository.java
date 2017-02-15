@@ -1,5 +1,5 @@
 package com.enrollment.repository;
 
-public class LecturerRepository {
+public interface LecturerRepository {
 
 }
