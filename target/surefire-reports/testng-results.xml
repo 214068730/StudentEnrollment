@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Surefire suite" duration-ms="59" started-at="2017-02-15T09:06:32Z" finished-at="2017-02-15T09:06:32Z">
+  <suite name="Surefire suite" duration-ms="47" started-at="2017-02-15T10:01:43Z" finished-at="2017-02-15T10:01:43Z">
     <groups>
     </groups>
-    <test name="Surefire test" duration-ms="59" started-at="2017-02-15T09:06:32Z" finished-at="2017-02-15T09:06:32Z">
+    <test name="Surefire test" duration-ms="47" started-at="2017-02-15T10:01:43Z" finished-at="2017-02-15T10:01:43Z">
       <class name="com.enrollment.AppTest">
-        <test-method status="PASS" signature="testApp()[pri:0, instance:testApp(com.enrollment.AppTest)]" name="testApp" duration-ms="3" started-at="2017-02-15T11:06:32Z" finished-at="2017-02-15T11:06:32Z">
+        <test-method status="PASS" signature="testApp()[pri:0, instance:testApp(com.enrollment.AppTest)]" name="testApp" duration-ms="0" started-at="2017-02-15T12:01:43Z" finished-at="2017-02-15T12:01:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testApp -->

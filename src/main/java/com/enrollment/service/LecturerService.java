@@ -1,5 +1,7 @@
 package com.enrollment.service;
 
-public interface LecturerService {
+import com.enrollment.domain.Lecturer;
+
+public interface LecturerService extends Service<Lecturer,Long> {
 
 }
