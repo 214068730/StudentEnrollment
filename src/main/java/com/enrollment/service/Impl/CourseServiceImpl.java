@@ -1,5 +1,6 @@
 package com.enrollment.service.Impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,31 +17,32 @@ public class CourseServiceImpl implements CourseService{
 	CourseRepository repo;
 	@Override
 	public Course create(Course entity) {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.save(entity);
 	}
 
 	@Override
 	public Course readById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.findOne(id);
 	}
 
 	@Override
 	public List<Course> readAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Course> courseList = new ArrayList<Course>();
+        Iterable<Course> courses = repo.findAll();
+        for (Course c : courses){
+        	courseList.add(c);
+        }
+        return courseList;
 	}
 
 	@Override
 	public Course update(Course entity) {
-		// TODO Auto-generated method stub
-		return null;
+		return repo.save(entity);
 	}
 
 	@Override
 	public void delete(Course entity) {
-		// TODO Auto-generated method stub
+		repo.delete(entity);
 		
 	}
 
