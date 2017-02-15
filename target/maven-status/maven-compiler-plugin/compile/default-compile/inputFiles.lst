@@ -1,7 +1,13 @@
+C:\Users\swilkinson\workspace\com.enrollment\src\main\java\com\enrollment\service\Service.java
+C:\Users\swilkinson\workspace\com.enrollment\src\main\java\com\enrollment\repository\DeparmentRepository.java
+C:\Users\swilkinson\workspace\com.enrollment\src\main\java\com\enrollment\repository\LecturerRepository.java
+C:\Users\swilkinson\workspace\com.enrollment\src\main\java\com\enrollment\repository\CourseRepository.java
 C:\Users\swilkinson\workspace\com.enrollment\src\main\java\com\enrollment\domain\Course.java
-C:\Users\swilkinson\workspace\com.enrollment\src\main\java\com\enrollment\App.java
-C:\Users\swilkinson\workspace\com.enrollment\src\main\java\com\enrollment\domain\Address.java
-C:\Users\swilkinson\workspace\com.enrollment\src\main\java\com\enrollment\domain\Lecturer.java
-C:\Users\swilkinson\workspace\com.enrollment\src\main\java\com\enrollment\domain\Subject.java
 C:\Users\swilkinson\workspace\com.enrollment\src\main\java\com\enrollment\domain\Department.java
+C:\Users\swilkinson\workspace\com.enrollment\src\main\java\com\enrollment\repository\SubjectRepository.java
+C:\Users\swilkinson\workspace\com.enrollment\src\main\java\com\enrollment\domain\Address.java
+C:\Users\swilkinson\workspace\com.enrollment\src\main\java\com\enrollment\App.java
 C:\Users\swilkinson\workspace\com.enrollment\src\main\java\com\enrollment\domain\Student.java
+C:\Users\swilkinson\workspace\com.enrollment\src\main\java\com\enrollment\domain\Lecturer.java
+C:\Users\swilkinson\workspace\com.enrollment\src\main\java\com\enrollment\repository\StudentRepository.java
+C:\Users\swilkinson\workspace\com.enrollment\src\main\java\com\enrollment\domain\Subject.java
