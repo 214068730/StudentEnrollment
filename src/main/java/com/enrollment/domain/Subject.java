@@ -1,6 +1,7 @@
 package com.enrollment.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -18,24 +19,29 @@ public class Subject implements Serializable  {
 	
 	@Column(name = "Lecturer")
 	@OneToMany
-	private Lecturer lecturer;
-	
+	private List<Lecturer> lecturer; //changed here
+
 	public long getSubjectID() {
 		return subjectID;
 	}
+
 	public void setSubjectID(long subjectID) {
 		this.subjectID = subjectID;
 	}
+
 	public String getSubjectName() {
 		return subjectName;
 	}
+
 	public void setSubjectName(String subjectName) {
 		this.subjectName = subjectName;
 	}
-	public Lecturer getLecturer() {
+
+	public List<Lecturer> getLecturer() {
 		return lecturer;
 	}
-	public void setLecturer(Lecturer lecturer) {
+
+	public void setLecturer(List<Lecturer> lecturer) {
 		this.lecturer = lecturer;
-	}	
+	}		
 }
