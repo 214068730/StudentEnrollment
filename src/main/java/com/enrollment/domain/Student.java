@@ -11,9 +11,19 @@ public class Student implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long studentID;
 
-	private Long studentNumber;
+	private String studentNumber;
 
 	private String studentName;
+	
+	private String studentSurname;
+
+	public String getStudentSurname() {
+		return studentSurname;
+	}
+
+	public void setStudentSurname(String studentSurname) {
+		this.studentSurname = studentSurname;
+	}
 
 	@Embedded
 	private Address studentAddress;
@@ -26,11 +36,11 @@ public class Student implements Serializable {
 		this.studentID = studentID;
 	}
 
-	public Long getStudentNumber() {
+	public String getStudentNumber() {
 		return studentNumber;
 	}
 
-	public void setStudentNumber(Long studentNumber) {
+	public void setStudentNumber(String studentNumber) {
 		this.studentNumber = studentNumber;
 	}
 
