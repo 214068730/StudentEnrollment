@@ -1,5 +1,9 @@
 package com.enrollment.repository;
 
-public interface LecturerRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.enrollment.domain.Lecturer;
+
+public interface LecturerRepository extends CrudRepository<Lecturer,Long> {
 
 }
