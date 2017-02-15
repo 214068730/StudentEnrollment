@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class Student implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long studentID;
+	private Long studentID;
 
 	private Long studentNumber;
 

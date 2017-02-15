@@ -1,5 +1,11 @@
 package com.enrollment.repository;
 
-public interface SubjectRepository {
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.enrollment.domain.Subject;
+
+@Repository
+public interface SubjectRepository extends CrudRepository<Subject, Long>{
 
 }
