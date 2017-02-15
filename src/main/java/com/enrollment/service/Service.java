@@ -2,14 +2,14 @@ package com.enrollment.service;
 
 import java.util.List;
 
-public interface Service<E,ID> {
-	 E create(E entity);
+public interface Service<E, ID> {
+	E create(E entity);
 
-	 E readById(ID id);
+	E readById(ID id);
 
 	List<E> readAll();
 
-	 E update(E entity);
+	E update(E entity);
 
-	 void delete(E entity);
+	void delete(E entity);
 }
