@@ -1,5 +1,7 @@
 package com.enrollment.service;
 
-public interface SubjectService {
+import com.enrollment.domain.Subject;
+
+public interface SubjectService extends Service<Subject,Long>{
 
 }
