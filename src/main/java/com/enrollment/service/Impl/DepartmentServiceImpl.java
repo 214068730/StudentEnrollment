@@ -15,8 +15,6 @@ public class DepartmentServiceImpl implements DepartmentService{
 	
 	@Autowired
 	DeparmentRepository repo;
-	
-	
 
 	@Override
 	public Department create(Department entity) {
