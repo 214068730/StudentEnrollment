@@ -11,13 +11,12 @@ import com.enrollment.domain.Lecturer;
 import com.enrollment.repository.LecturerRepository;
 import com.enrollment.service.LecturerService;
 
-@Service 
+@Service
 public class LecturerServiceImpl implements LecturerService {
 
-	
 	@Autowired
 	LecturerRepository repo;
-	
+
 	@Override
 	public Lecturer create(Lecturer entity) {
 		return repo.save(entity);
@@ -31,11 +30,11 @@ public class LecturerServiceImpl implements LecturerService {
 	@Override
 	public List<Lecturer> readAll() {
 		List<Lecturer> lectureList = new ArrayList<Lecturer>();
-        Iterable<Lecturer> lecturers = repo.findAll();
-        for (Lecturer c : lecturers){
-        	lectureList.add(c);
-        }
-        return lectureList;
+		Iterable<Lecturer> lecturers = repo.findAll();
+		for (Lecturer c : lecturers) {
+			lectureList.add(c);
+		}
+		return lectureList;
 	}
 
 	@Override
@@ -48,5 +47,4 @@ public class LecturerServiceImpl implements LecturerService {
 		repo.delete(entity);
 	}
 
-	
 }

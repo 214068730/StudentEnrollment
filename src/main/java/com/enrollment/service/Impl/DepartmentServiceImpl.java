@@ -11,8 +11,8 @@ import com.enrollment.repository.DeparmentRepository;
 import com.enrollment.service.DepartmentService;
 
 @Service
-public class DepartmentServiceImpl implements DepartmentService{
-	
+public class DepartmentServiceImpl implements DepartmentService {
+
 	@Autowired
 	DeparmentRepository repo;
 
@@ -29,11 +29,11 @@ public class DepartmentServiceImpl implements DepartmentService{
 	@Override
 	public List<Department> readAll() {
 		List<Department> departmentList = new ArrayList<Department>();
-        Iterable<Department> departments = repo.findAll();
-        for (Department c : departments){
-        	departmentList.add(c);
-        }
-        return departmentList;
+		Iterable<Department> departments = repo.findAll();
+		for (Department c : departments) {
+			departmentList.add(c);
+		}
+		return departmentList;
 	}
 
 	@Override

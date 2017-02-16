@@ -11,11 +11,11 @@ import com.enrollment.repository.StudentRepository;
 import com.enrollment.service.StudentService;
 
 @Service
-public class StudentServiceImpl implements StudentService{
+public class StudentServiceImpl implements StudentService {
 
 	@Autowired
 	private StudentRepository repo;
-	
+
 	@Override
 	public Student create(Student entity) {
 		return repo.save(entity);
@@ -28,14 +28,14 @@ public class StudentServiceImpl implements StudentService{
 
 	@Override
 	public List<Student> readAll() {
-		  
+
 		List<Student> studentList = new ArrayList<Student>();
-	    Iterable<Student> students = repo.findAll();
-	    
-	    for (Student s : students){
-	    	studentList.add(s);
-	    }
-	   return studentList;
+		Iterable<Student> students = repo.findAll();
+
+		for (Student s : students) {
+			studentList.add(s);
+		}
+		return studentList;
 	}
 
 	@Override
