@@ -11,10 +11,11 @@ import com.enrollment.repository.CourseRepository;
 import com.enrollment.service.CourseService;
 
 @Service
-public class CourseServiceImpl implements CourseService{
+public class CourseServiceImpl implements CourseService {
 
 	@Autowired
 	CourseRepository repo;
+
 	@Override
 	public Course create(Course entity) {
 		return repo.save(entity);
@@ -28,11 +29,11 @@ public class CourseServiceImpl implements CourseService{
 	@Override
 	public List<Course> readAll() {
 		List<Course> courseList = new ArrayList<Course>();
-        Iterable<Course> courses = repo.findAll();
-        for (Course c : courses){
-        	courseList.add(c);
-        }
-        return courseList;
+		Iterable<Course> courses = repo.findAll();
+		for (Course c : courses) {
+			courseList.add(c);
+		}
+		return courseList;
 	}
 
 	@Override
@@ -43,7 +44,7 @@ public class CourseServiceImpl implements CourseService{
 	@Override
 	public void delete(Course entity) {
 		repo.delete(entity);
-		
+
 	}
 
 }

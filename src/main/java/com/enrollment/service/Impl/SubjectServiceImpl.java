@@ -11,11 +11,11 @@ import com.enrollment.repository.SubjectRepository;
 import com.enrollment.service.SubjectService;
 
 @Service
-public class SubjectServiceImpl implements SubjectService{
+public class SubjectServiceImpl implements SubjectService {
 
 	@Autowired
 	private SubjectRepository repo;
-	
+
 	@Override
 	public Subject create(Subject entity) {
 		return repo.save(entity);
@@ -30,10 +30,10 @@ public class SubjectServiceImpl implements SubjectService{
 	public List<Subject> readAll() {
 		List<Subject> subjectList = new ArrayList<Subject>();
 		Iterable<Subject> subjects = repo.findAll();
-		
-		for (Subject s : subjects){
+
+		for (Subject s : subjects) {
 			subjectList.add(s);
-		}			
+		}
 		return subjectList;
 	}
 
