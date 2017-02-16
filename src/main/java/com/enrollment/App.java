@@ -28,42 +28,11 @@ import com.enrollment.domain.Student;
 @EnableWebMvc
 @ComponentScan
 public class App extends WebMvcConfigurerAdapter {
-	final static Student student = new Student();
-
+	
 	public static void main(String[] args) {
-		// SpringApplication.run(App.class, args);
+		SpringApplication.run(App.class, args);
 		System.out.println("Hello World!");
-		Address address = new Address();
-		address.setAreaCode("RCKLS");
-		address.setStreetName("Sparrow");
-		address.setStreetNumber("15");
-		address.setSurbubName("Rocklands");
 
-		student.setStudentAddress(address);
-		student.setStudentID(275L);
-		student.setStudentName("Siraaj");
-		student.setStudentNumber("214068730");
-		student.setStudentSurname("Wilkinson");
-		
-		create();
-
-	}
-
-	private static void create() {
-		try{
-		final String url = "http://localhost:8080/enrollment/student/create";
-		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.getMessageConverters().add(
-				new MappingJackson2HttpMessageConverter());
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		HttpEntity<Student> httpEntity = new HttpEntity<>(student, headers);
-		restTemplate.postForObject(url, httpEntity, Student.class);
-		}
-		catch(Exception ex)
-		{
-			System.out.println(ex.getMessage());
-		}
 	}
 
 }
