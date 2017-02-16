@@ -21,7 +21,7 @@ public class TestCourse extends TestCase{
 		
 		department.setDepartmentID(56L);
 		department.setDepartmentName("Information Technology");
-		
+				
 		Assert.assertEquals("PPD3EB", course.getCourseCode());
 		Assert.assertEquals("Software Development", course.getCourseName());
 	}
