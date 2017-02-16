@@ -5,8 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.enrollment.domain.Department;
 import com.enrollment.domain.Lecturer;
 import com.enrollment.repository.LecturerRepository;
 import com.enrollment.service.LecturerService;
