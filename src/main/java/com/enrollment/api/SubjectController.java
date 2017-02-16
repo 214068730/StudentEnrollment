@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 
-import com.enrollment.domain.Student;
 import com.enrollment.domain.Subject;
 import com.enrollment.service.Impl.SubjectServiceImpl;
 
