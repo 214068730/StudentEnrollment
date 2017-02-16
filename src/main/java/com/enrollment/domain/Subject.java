@@ -14,6 +14,8 @@ public class Subject implements Serializable {
 	private long subjectID;
 
 	private String subjectName;
+	
+	private String subjectCode;
 
 	private Lecturer lecturer;
 
@@ -31,6 +33,14 @@ public class Subject implements Serializable {
 
 	public void setSubjectName(String subjectName) {
 		this.subjectName = subjectName;
+	}
+	
+	public String getSubjectCode() {
+		return subjectCode;
+	}
+
+	public void setSubjectCode(String subjectCode) {
+		this.subjectCode = subjectCode;
 	}
 
 	public Lecturer getLecturer() {
