@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.enrollment.domain.Department;
 
 @Repository
-public interface DeparmentRepository extends CrudRepository<Department,Long>  {
+public interface DepartmentRepository extends CrudRepository<Department,Long>  {
 
 }

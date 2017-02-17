@@ -35,7 +35,7 @@ public class TestSubjectRepository extends AbstractTestNGSpringContextTests{
 		
 		//save the subject in the database
 		Subject result = repo.save(subject);
-		Assert.assertNotNull(subject);
+		Assert.assertNotNull(result);
 	}
 	
 	@Test(dependsOnMethods = "testCreateSubject")
@@ -52,10 +52,28 @@ public class TestSubjectRepository extends AbstractTestNGSpringContextTests{
 			subject.setLecturer(lecturer);
 			Lecturer updatedLecturer = subject.getLecturer();
 			
-			Subject updatedSubject =repo.save(subject);
+			Subject updatedSubject = repo.save(subject);
             Assert.assertEquals(updatedSubject.getSubjectName(),"Technical Programming III");
             Assert.assertEquals(updatedSubject.getSubjectCode(), "PPC89UI");
-            Assert.assertEquals("Gutsa",updatedLecturer.getSurname());   
+            Assert.assertEquals("Gutsa",updatedLecturer.getSurname());
 		}
+	}
+	
+	@Test(dependsOnMethods = "testUpdateSubject")
+	public void testReadAllSubjects() throws Exception{
+		Iterable<Subject> subjects =  repo.findAll();
+        Assert.assertNotNull(subjects);
+	}
+	
+	@Test(dependsOnMethods = "testReadAllSubjects")
+	public void testDeleteSubject() throws Exception{
+		Subject subject = repo.findOne(1L);
+		
+		if (subject != null)
+		{
+			repo.delete(subject);
+			Subject deletedSubject = repo.findOne(1L);
+			Assert.assertNull(deletedSubject);
+		}		
 	}
 }

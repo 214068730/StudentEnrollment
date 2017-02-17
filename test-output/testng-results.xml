@@ -1,77 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="13065" started-at="2017-02-16T14:48:01Z" finished-at="2017-02-16T14:48:14Z">
+  <suite name="Default suite" duration-ms="12869" started-at="2017-02-17T13:16:28Z" finished-at="2017-02-17T13:16:40Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="13065" started-at="2017-02-16T14:48:01Z" finished-at="2017-02-16T14:48:14Z">
-      <class name="com.enrollment.repository.TestSubjectRepository">
-        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.enrollment.repository.TestSubjectRepository@58298ffc]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="10" started-at="2017-02-16T16:48:01Z" finished-at="2017-02-16T16:48:01Z">
+    <test name="Default test" duration-ms="12869" started-at="2017-02-17T13:16:28Z" finished-at="2017-02-17T13:16:40Z">
+      <class name="com.enrollment.repository.TestCourseRepository">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.enrollment.repository.TestCourseRepository@14c0f78f]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="11" started-at="2017-02-17T15:16:28Z" finished-at="2017-02-17T15:16:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestClass -->
-        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.enrollment.repository.TestSubjectRepository@58298ffc]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="12851" started-at="2017-02-16T16:48:01Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2017-02-16T16:48:14Z">
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.enrollment.repository.TestCourseRepository@14c0f78f]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="12239" started-at="2017-02-17T15:16:28Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2017-02-17T15:16:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextPrepareTestInstance -->
-        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.repository.TestSubjectRepository@58298ffc]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="2" started-at="2017-02-16T16:48:14Z" finished-at="2017-02-16T16:48:14Z">
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.repository.TestCourseRepository@14c0f78f]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="2" started-at="2017-02-17T15:16:40Z" finished-at="2017-02-17T15:16:40Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.enrollment.repository.TestSubjectRepository.testCreateSubject() throws java.lang.Exception]]>
+                <![CDATA[public void com.enrollment.repository.TestCourseRepository.testCreateCourse() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="testCreateSubject()[pri:0, instance:com.enrollment.repository.TestSubjectRepository@58298ffc]" name="testCreateSubject" duration-ms="122" started-at="2017-02-16T16:48:14Z" finished-at="2017-02-16T16:48:14Z">
+        <test-method status="PASS" signature="testCreateCourse()[pri:0, instance:com.enrollment.repository.TestCourseRepository@14c0f78f]" name="testCreateCourse" duration-ms="311" started-at="2017-02-17T15:16:40Z" finished-at="2017-02-17T15:16:40Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testCreateSubject -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.repository.TestSubjectRepository@58298ffc]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2017-02-16T16:48:14Z" finished-at="2017-02-16T16:48:14Z">
+        </test-method> <!-- testCreateCourse -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.repository.TestCourseRepository@14c0f78f]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="3" started-at="2017-02-17T15:16:40Z" finished-at="2017-02-17T15:16:40Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.enrollment.repository.TestSubjectRepository.testCreateSubject() throws java.lang.Exception]]>
+                <![CDATA[public void com.enrollment.repository.TestCourseRepository.testCreateCourse() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.repository.TestSubjectRepository@58298ffc]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2017-02-16T16:48:14Z" finished-at="2017-02-16T16:48:14Z">
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.repository.TestCourseRepository@14c0f78f]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="2" started-at="2017-02-17T15:16:40Z" finished-at="2017-02-17T15:16:40Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.enrollment.repository.TestSubjectRepository.testUpdateSubject() throws java.lang.Exception]]>
+                <![CDATA[public void com.enrollment.repository.TestCourseRepository.testUpdateCourse() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="testUpdateSubject()[pri:0, instance:com.enrollment.repository.TestSubjectRepository@58298ffc]" name="testUpdateSubject" duration-ms="62" started-at="2017-02-16T16:48:14Z" depends-on-methods="com.enrollment.repository.TestSubjectRepository.testCreateSubject" finished-at="2017-02-16T16:48:14Z">
+        <test-method status="PASS" signature="testUpdateCourse()[pri:0, instance:com.enrollment.repository.TestCourseRepository@14c0f78f]" name="testUpdateCourse" duration-ms="52" started-at="2017-02-17T15:16:40Z" depends-on-methods="com.enrollment.repository.TestCourseRepository.testCreateCourse" finished-at="2017-02-17T15:16:40Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testUpdateSubject -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.repository.TestSubjectRepository@58298ffc]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2017-02-16T16:48:14Z" finished-at="2017-02-16T16:48:14Z">
+        </test-method> <!-- testUpdateCourse -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.repository.TestCourseRepository@14c0f78f]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2017-02-17T15:16:40Z" finished-at="2017-02-17T15:16:40Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.enrollment.repository.TestSubjectRepository.testUpdateSubject() throws java.lang.Exception]]>
+                <![CDATA[public void com.enrollment.repository.TestCourseRepository.testUpdateCourse() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.enrollment.repository.TestSubjectRepository@58298ffc]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2017-02-16T16:48:14Z" finished-at="2017-02-16T16:48:14Z">
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.repository.TestCourseRepository@14c0f78f]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2017-02-17T15:16:40Z" finished-at="2017-02-17T15:16:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.enrollment.repository.TestCourseRepository.testReadAllCourses() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testReadAllCourses()[pri:0, instance:com.enrollment.repository.TestCourseRepository@14c0f78f]" name="testReadAllCourses" duration-ms="189" started-at="2017-02-17T15:16:40Z" depends-on-methods="com.enrollment.repository.TestCourseRepository.testUpdateCourse" finished-at="2017-02-17T15:16:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testReadAllCourses -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.repository.TestCourseRepository@14c0f78f]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2017-02-17T15:16:40Z" finished-at="2017-02-17T15:16:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.enrollment.repository.TestCourseRepository.testReadAllCourses() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.repository.TestCourseRepository@14c0f78f]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="2" started-at="2017-02-17T15:16:40Z" finished-at="2017-02-17T15:16:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.enrollment.repository.TestCourseRepository.testDeleteCourse() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testDeleteCourse()[pri:0, instance:com.enrollment.repository.TestCourseRepository@14c0f78f]" name="testDeleteCourse" duration-ms="29" started-at="2017-02-17T15:16:40Z" depends-on-methods="com.enrollment.repository.TestCourseRepository.testReadAllCourses" finished-at="2017-02-17T15:16:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDeleteCourse -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.repository.TestCourseRepository@14c0f78f]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2017-02-17T15:16:40Z" finished-at="2017-02-17T15:16:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.enrollment.repository.TestCourseRepository.testDeleteCourse() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.enrollment.repository.TestCourseRepository@14c0f78f]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2017-02-17T15:16:40Z" finished-at="2017-02-17T15:16:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestClass -->
-      </class> <!-- com.enrollment.repository.TestSubjectRepository -->
+      </class> <!-- com.enrollment.repository.TestCourseRepository -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

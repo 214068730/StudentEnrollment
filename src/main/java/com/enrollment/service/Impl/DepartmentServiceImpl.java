@@ -7,14 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.enrollment.domain.Department;
-import com.enrollment.repository.DeparmentRepository;
+import com.enrollment.repository.DepartmentRepository;
 import com.enrollment.service.DepartmentService;
 
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
 
 	@Autowired
-	DeparmentRepository repo;
+	DepartmentRepository repo;
 
 	@Override
 	public Department create(Department entity) {

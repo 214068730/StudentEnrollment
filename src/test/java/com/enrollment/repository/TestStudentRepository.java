@@ -51,21 +51,19 @@ public class TestStudentRepository extends AbstractTestNGSpringContextTests {
 	}
 	
 	@Test(dependsOnMethods = "testStudentUpdate")
-	public void testReadAll() throws Exception{
+	public void testReadAllStudents() throws Exception{
 		Iterable<Student> students =  repo.findAll();
         Assert.assertNotNull(students);
 	}
 		
-	@Test(dependsOnMethods = "testReadAll")
-	public void testDelete() throws Exception{
+	@Test(dependsOnMethods = "testReadAllStudents")
+	public void testDeleteStudent() throws Exception{
 		Student student = repo.findOne(1L);
         if(student != null)
         {
-            Assert.assertNotNull(student);
             repo.delete(student);
             Student deletedStudent = repo.findOne(1L);
             Assert.assertNull(deletedStudent);
         }
-	}
-	
+	}	
 }

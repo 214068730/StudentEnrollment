@@ -15,7 +15,7 @@ public class Course implements Serializable {
 	@ManyToOne
 	Student student;
 	@ManyToOne
-	Subject stubject;
+	Subject subject;
 	@OneToOne
 	Department department;
 	public Long getId() {
@@ -42,11 +42,11 @@ public class Course implements Serializable {
 	public void setStudent(Student student) {
 		this.student = student;
 	}
-	public Subject getStubject() {
-		return stubject;
+	public Subject getSubject() {
+		return subject;
 	}
-	public void setStubject(Subject stubject) {
-		this.stubject = stubject;
+	public void setSubject(Subject subject) {
+		this.subject = subject;
 	}
 	public Department getDepartment() {
 		return department;
