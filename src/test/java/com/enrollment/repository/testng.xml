@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="repository suite 1" verbose="1" >
+  <test name="Regression suite 1" >
+    <classes>
+      <class name="com.enrollment.repository.TestStudentRepository"/>
+      <class name="com.enrollment.repository.TestSubjectRepository"/>
+      <class name="com.enrollment.repository.TestLecturerRepository"/>
+      <class name="com.enrollment.repository.TestCourseRepository"/>
+      <class name="com.enrollment.repository.TestDepartmentRepository"/>
+    </classes>
+ </test>
+</suite>
