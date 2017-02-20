@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="service suite 1" verbose="1" >
+  <test name="Regression suite 1" >
+    <classes>
+      <class name="com.enrollment.service.TestStudentService"/>
+      <class name="com.enrollment.service.TestSubjectService"/>
+      <class name="com.enrollment.service.TestLecturerService"/>
+      <class name="com.enrollment.service.TestCourseService"/>
+      <class name="com.enrollment.service.TestDepartmentService"/>
+    </classes>
+ </test>
+</suite>
