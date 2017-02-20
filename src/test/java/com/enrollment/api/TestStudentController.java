@@ -74,13 +74,13 @@ public class TestStudentController extends AbstractTestNGSpringContextTests {
 
 	}
 
-//	@Test(dependsOnMethods = "testFindAll")
-//	public void testDelete() {
-//		String url = "http://localhost:8080/enrollment/student/delete/{id}";
-//		restTemplate.delete(url, 1);
-//		Student student = restTemplate.getForObject(url, Student.class, "1");
-//		Assert.assertNull(student);
-//
-//	}
+	@Test(dependsOnMethods = "testFindAll")
+	public void testDelete() {
+		String url = "http://localhost:8080/enrollment/student/delete/{id}";
+		restTemplate.delete(url, 1);
+		Student student = restTemplate.getForObject(url, Student.class, "1");
+		Assert.assertNull(student);
+
+	}
 
 }

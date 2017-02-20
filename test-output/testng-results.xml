@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="4" passed="4">
+<testng-results skipped="0" failed="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="10520" started-at="2017-02-20T12:13:51Z" finished-at="2017-02-20T12:14:01Z">
+  <suite name="Default suite" duration-ms="10179" started-at="2017-02-20T12:40:03Z" finished-at="2017-02-20T12:40:13Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="10520" started-at="2017-02-20T12:13:51Z" finished-at="2017-02-20T12:14:01Z">
+    <test name="Default test" duration-ms="10179" started-at="2017-02-20T12:40:03Z" finished-at="2017-02-20T12:40:13Z">
       <class name="com.enrollment.api.TestStudentController">
-        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.enrollment.api.TestStudentController@632b2d25]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="20" started-at="2017-02-20T14:13:51Z" finished-at="2017-02-20T14:13:51Z">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.enrollment.api.TestStudentController@6ec1884e]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="20" started-at="2017-02-20T14:40:03Z" finished-at="2017-02-20T14:40:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestClass -->
-        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.enrollment.api.TestStudentController@632b2d25]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="10208" started-at="2017-02-20T14:13:51Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2017-02-20T14:14:01Z">
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.enrollment.api.TestStudentController@6ec1884e]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="9756" started-at="2017-02-20T14:40:03Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2017-02-20T14:40:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextPrepareTestInstance -->
-        <test-method status="PASS" signature="testCreate()[pri:0, instance:com.enrollment.api.TestStudentController@632b2d25]" name="testCreate" duration-ms="191" started-at="2017-02-20T14:14:01Z" finished-at="2017-02-20T14:14:01Z">
+        <test-method status="PASS" signature="testCreate()[pri:0, instance:com.enrollment.api.TestStudentController@6ec1884e]" name="testCreate" duration-ms="181" started-at="2017-02-20T14:40:13Z" finished-at="2017-02-20T14:40:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testCreate -->
-        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.api.TestStudentController@632b2d25]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2017-02-20T14:14:01Z" finished-at="2017-02-20T14:14:01Z">
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.api.TestStudentController@6ec1884e]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2017-02-20T14:40:13Z" finished-at="2017-02-20T14:40:13Z">
           <params>
             <param index="0">
               <value>
@@ -30,7 +30,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.api.TestStudentController@632b2d25]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2017-02-20T14:14:01Z" finished-at="2017-02-20T14:14:01Z">
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.api.TestStudentController@6ec1884e]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2017-02-20T14:40:13Z" finished-at="2017-02-20T14:40:13Z">
           <params>
             <param index="0">
               <value>
@@ -41,11 +41,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="testFindById()[pri:0, instance:com.enrollment.api.TestStudentController@632b2d25]" name="testFindById" duration-ms="20" started-at="2017-02-20T14:14:01Z" depends-on-methods="com.enrollment.api.TestStudentController.testCreate" finished-at="2017-02-20T14:14:01Z">
+        <test-method status="PASS" signature="testFindById()[pri:0, instance:com.enrollment.api.TestStudentController@6ec1884e]" name="testFindById" duration-ms="20" started-at="2017-02-20T14:40:13Z" depends-on-methods="com.enrollment.api.TestStudentController.testCreate" finished-at="2017-02-20T14:40:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testFindById -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.api.TestStudentController@632b2d25]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2017-02-20T14:14:01Z" finished-at="2017-02-20T14:14:01Z">
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.api.TestStudentController@6ec1884e]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2017-02-20T14:40:13Z" finished-at="2017-02-20T14:40:13Z">
           <params>
             <param index="0">
               <value>
@@ -56,11 +56,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="testUpdate()[pri:0, instance:com.enrollment.api.TestStudentController@632b2d25]" name="testUpdate" duration-ms="40" started-at="2017-02-20T14:14:01Z" depends-on-methods="com.enrollment.api.TestStudentController.testFindById" finished-at="2017-02-20T14:14:01Z">
+        <test-method status="PASS" signature="testUpdate()[pri:0, instance:com.enrollment.api.TestStudentController@6ec1884e]" name="testUpdate" duration-ms="67" started-at="2017-02-20T14:40:13Z" depends-on-methods="com.enrollment.api.TestStudentController.testFindById" finished-at="2017-02-20T14:40:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testUpdate -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.api.TestStudentController@632b2d25]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2017-02-20T14:14:01Z" finished-at="2017-02-20T14:14:01Z">
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.api.TestStudentController@6ec1884e]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2017-02-20T14:40:13Z" finished-at="2017-02-20T14:40:13Z">
           <params>
             <param index="0">
               <value>
@@ -71,7 +71,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.api.TestStudentController@632b2d25]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2017-02-20T14:14:01Z" finished-at="2017-02-20T14:14:01Z">
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.api.TestStudentController@6ec1884e]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2017-02-20T14:40:13Z" finished-at="2017-02-20T14:40:13Z">
           <params>
             <param index="0">
               <value>
@@ -82,18 +82,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.api.TestStudentController@632b2d25]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="10" started-at="2017-02-20T14:14:01Z" finished-at="2017-02-20T14:14:01Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.enrollment.api.TestStudentController.testFindAll()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.api.TestStudentController@632b2d25]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2017-02-20T14:14:01Z" finished-at="2017-02-20T14:14:01Z">
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.api.TestStudentController@6ec1884e]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2017-02-20T14:40:13Z" finished-at="2017-02-20T14:40:13Z">
           <params>
             <param index="0">
               <value>
@@ -104,11 +93,22 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="testFindAll()[pri:0, instance:com.enrollment.api.TestStudentController@632b2d25]" name="testFindAll" duration-ms="30" started-at="2017-02-20T14:14:01Z" depends-on-methods="com.enrollment.api.TestStudentController.testUpdate" finished-at="2017-02-20T14:14:01Z">
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.api.TestStudentController@6ec1884e]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2017-02-20T14:40:13Z" finished-at="2017-02-20T14:40:13Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.enrollment.api.TestStudentController.testFindAll()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testFindAll()[pri:0, instance:com.enrollment.api.TestStudentController@6ec1884e]" name="testFindAll" duration-ms="40" started-at="2017-02-20T14:40:13Z" depends-on-methods="com.enrollment.api.TestStudentController.testUpdate" finished-at="2017-02-20T14:40:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testFindAll -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.api.TestStudentController@632b2d25]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2017-02-20T14:14:01Z" finished-at="2017-02-20T14:14:01Z">
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.api.TestStudentController@6ec1884e]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2017-02-20T14:40:13Z" finished-at="2017-02-20T14:40:13Z">
           <params>
             <param index="0">
               <value>
@@ -119,7 +119,33 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.enrollment.api.TestStudentController@632b2d25]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2017-02-20T14:14:01Z" finished-at="2017-02-20T14:14:01Z">
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.api.TestStudentController@6ec1884e]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2017-02-20T14:40:13Z" finished-at="2017-02-20T14:40:13Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.enrollment.api.TestStudentController.testDelete()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="testDelete()[pri:0, instance:com.enrollment.api.TestStudentController@6ec1884e]" name="testDelete" duration-ms="75" started-at="2017-02-20T14:40:13Z" depends-on-methods="com.enrollment.api.TestStudentController.testFindAll" finished-at="2017-02-20T14:40:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDelete -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.enrollment.api.TestStudentController@6ec1884e]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2017-02-20T14:40:13Z" finished-at="2017-02-20T14:40:13Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.enrollment.api.TestStudentController.testDelete()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.enrollment.api.TestStudentController@6ec1884e]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2017-02-20T14:40:13Z" finished-at="2017-02-20T14:40:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestClass -->

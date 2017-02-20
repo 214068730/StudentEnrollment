@@ -53,7 +53,7 @@ public class LecturerController {
 	}
 
 	// delete
-	@RequestMapping(value = "lecturer/delete/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "lecturer/delete/{id}", method = {RequestMethod.GET,RequestMethod.DELETE})
 	@ResponseStatus(HttpStatus.OK)
 	public void Department(@PathVariable("id") Long id) {
 		Lecturer deleteLecturer = service.readById(id);

@@ -59,7 +59,7 @@ public class CourseController {
 	}
 
 	// delete
-	@RequestMapping(value = "course/delete/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "course/delete/{id}", method ={RequestMethod.GET,RequestMethod.DELETE})
 	@ResponseStatus(HttpStatus.OK)
 	public void Course(@PathVariable("id") Long id) {
 		Course deleteCourse = service.readById(id);
