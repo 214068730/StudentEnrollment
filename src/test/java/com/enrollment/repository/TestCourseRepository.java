@@ -98,8 +98,8 @@ public class TestCourseRepository extends AbstractTestNGSpringContextTests{
 	
 	@Test(dependsOnMethods = "testReadAllCourses")
 	public void testStudentCourse() throws Exception{
-//		List<Course> course = courseRepo.findCourseByStudentId(2L);
-//		Assert.assertNotNull(course);
+		List<Course> course = courseRepo.findByStudentStudentID(2L);
+		Assert.assertNotNull(course);
 		
 	}	
 	

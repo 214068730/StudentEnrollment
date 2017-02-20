@@ -12,6 +12,5 @@ import com.enrollment.domain.Course;
 @Repository
 public interface CourseRepository extends CrudRepository<Course,Long>  {
 
-//	@Query(value = "SELECT  c FROM Course c  WHERE c.id = :studentNumber")
-//	public List<Course> findCourseByStudentId(@Param("studentNumber")Long studentNumber);
+	public List<Course> findByStudentStudentID(/*@Param("studentNumber")*/Long studentID);
 }

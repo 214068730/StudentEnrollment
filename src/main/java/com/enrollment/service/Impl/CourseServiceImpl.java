@@ -49,12 +49,12 @@ public class CourseServiceImpl implements CourseService {
 	
 	@Override
 	public List<Course> findCourseByStudentNumber(Long studentNumber){
-//		List<Course> courseList = new ArrayList<Course>();
-//		Iterable<Course> courses = repo.findCourseByStudentId(studentNumber);
-//		for (Course c : courses) {
-//			courseList.add(c);
-//		}
-//		return courseList;
-		return null;
+		List<Course> courseList = new ArrayList<Course>();
+		Iterable<Course> courses = repo.findByStudentStudentID(studentNumber);
+		for (Course c : courses) {
+			courseList.add(c);
+		}
+		return courseList;
+		
 	} 
 }

@@ -41,25 +41,4 @@ public class App extends WebMvcConfigurerAdapter {
 
 	}
 
-	private static List<Course> getAll() {
-		RestTemplate restTemplate = new RestTemplate();
-		List<Course> lecturers = new ArrayList();
-		restTemplate.getMessageConverters().add(
-				new MappingJackson2HttpMessageConverter());
-		HttpHeaders headers = new HttpHeaders();
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		String url = "http://localhost:8080/enrollment/course/findAll/";
-
-		//
-		HttpEntity<?> requestEntity = new HttpEntity<Object>(headers);
-		ResponseEntity<Course[]> responseEntity = restTemplate.exchange(url+"1",
-				HttpMethod.GET, requestEntity, Course[].class);
-		Course[] results = responseEntity.getBody();
-
-		for (Course b : results) {
-			lecturers.add(b);
-		}
-		return lecturers;
-	}
-
 }

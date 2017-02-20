@@ -51,12 +51,12 @@ public class CourseController {
 		return service.readAll();
 	}
 
-//	// find All by student id
-//	@RequestMapping(value = "/course/findAll/{id}", method = RequestMethod.GET)
-//	@ResponseBody
-//	public List<Course> findAllByStudentID(@PathVariable Long id) {
-//		return service.findCourseByStudentNumber(id);
-//	}
+	// find All by student id
+	@RequestMapping(value = "/course/findAll/{id}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Course> findAllByStudentID(@PathVariable Long id) {
+		return service.findCourseByStudentNumber(id);
+	}
 
 	// delete
 	@RequestMapping(value = "course/delete/{id}", method = RequestMethod.DELETE)
