@@ -3,6 +3,8 @@ package com.enrollment.domain;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 @Entity
 @Table(name = "tblLecturer")
@@ -13,8 +15,11 @@ public class Lecturer implements Serializable {
 	Long id;
 	String name;
 	String surname;
+	String dateAdded;
 
 	public Lecturer() {
+		this.dateAdded = new SimpleDateFormat("yyyyMMdd_HHmmss")
+				.format(Calendar.getInstance().getTime());
 	}
 
 	public Lecturer(Long id, String name, String surname) {
@@ -22,6 +27,8 @@ public class Lecturer implements Serializable {
 		this.id = id;
 		this.name = name;
 		this.surname = surname;
+		this.dateAdded = new SimpleDateFormat("yyyyMMdd_HHmmss")
+				.format(Calendar.getInstance().getTime());
 	}
 
 	public Long getId() {
@@ -46,6 +53,10 @@ public class Lecturer implements Serializable {
 
 	public void setSurname(String surname) {
 		this.surname = surname;
+	}
+
+	public String getDateAdded() {
+		return this.dateAdded;
 	}
 
 }

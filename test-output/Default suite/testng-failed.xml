@@ -12,6 +12,7 @@
           <include name="springTestContextPrepareTestInstance"/>
           <include name="testFindAll"/>
           <include name="springTestContextAfterTestMethod"/>
+          <include name="testDelete"/>
           <include name="testUpdate"/>
           <include name="testFindById"/>
         </methods>

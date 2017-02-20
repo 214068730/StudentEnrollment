@@ -1,6 +1,8 @@
 package com.enrollment.domain;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.*;
@@ -17,11 +19,15 @@ public class Subject implements Serializable {
 
 	private String subjectCode;
 
+	private String dateAdded;
+
 	@OneToOne
 	@JoinColumn(name = "lectureID")
 	private Lecturer lecturer;
 
 	public Subject() {
+		this.dateAdded = new SimpleDateFormat("yyyyMMdd_HHmmss")
+				.format(Calendar.getInstance().getTime());
 	}
 
 	public Subject(long subjectID, String subjectName, String subjectCode,
@@ -31,6 +37,8 @@ public class Subject implements Serializable {
 		this.subjectName = subjectName;
 		this.subjectCode = subjectCode;
 		this.lecturer = lecturer;
+		this.dateAdded = new SimpleDateFormat("yyyyMMdd_HHmmss")
+				.format(Calendar.getInstance().getTime());
 	}
 
 	public long getSubjectID() {
@@ -63,5 +71,9 @@ public class Subject implements Serializable {
 
 	public void setLecturer(Lecturer lecturer) {
 		this.lecturer = lecturer;
+	}
+
+	public String getDateAdded() {
+		return this.dateAdded;
 	}
 }
