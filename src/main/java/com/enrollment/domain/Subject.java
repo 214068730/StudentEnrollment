@@ -17,6 +17,8 @@ public class Subject implements Serializable {
 	
 	private String subjectCode;
 
+	@OneToOne
+	@JoinColumn(name="lectureID")
 	private Lecturer lecturer;
 
 	public long getSubjectID() {
