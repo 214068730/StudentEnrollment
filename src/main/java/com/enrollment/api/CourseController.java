@@ -22,14 +22,14 @@ public class CourseController {
 	@Autowired
 	CourseServiceImpl service;
 
-	//find by id
+	// find by id
 	@RequestMapping(value = "course/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public Course findById(@PathVariable Long id) {
 		return service.readById(id);
 	}
 
-	//insert
+	// insert
 	@RequestMapping(value = "/course/create", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	@ResponseBody
@@ -37,22 +37,29 @@ public class CourseController {
 		return service.create(course);
 	}
 
-	//update
+	// update
 	@RequestMapping(value = "/course/update", method = RequestMethod.PUT)
 	@ResponseStatus(HttpStatus.OK)
 	public void update(@RequestBody Course course) {
 		service.update(course);
 	}
 
-	//find All
+	// find All
 	@RequestMapping(value = "/course/findAll", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Course> findAll() {
 		return service.readAll();
 	}
 
-	//delete
-	@RequestMapping(value = "course/delete/{id}", method = RequestMethod.DELETE)
+	// find All by student id
+	@RequestMapping(value = "/course/findAll/{id}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Course> findAllByStudentID(@PathVariable Long id) {
+		return service.findCourseByStudentNumber(id);
+	}
+
+	// delete
+	@RequestMapping(value = "course/delete/{id}", method ={RequestMethod.GET,RequestMethod.DELETE})
 	@ResponseStatus(HttpStatus.OK)
 	public void Course(@PathVariable("id") Long id) {
 		Course deleteCourse = service.readById(id);

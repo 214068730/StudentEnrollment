@@ -2,6 +2,8 @@ package com.enrollment.service;
 
 import java.util.List;
 
+import com.enrollment.domain.Course;
+
 public interface Service<E, ID> {
 	E create(E entity);
 
@@ -12,4 +14,5 @@ public interface Service<E, ID> {
 	E update(E entity);
 
 	void delete(E entity);
+
 }

@@ -98,6 +98,9 @@
 			<artifactId>db2jcc_license_cu</artifactId>
 			<version>8.1</version>
 		</dependency>
+
+	
+
 	</dependencies>
 
 	<build>

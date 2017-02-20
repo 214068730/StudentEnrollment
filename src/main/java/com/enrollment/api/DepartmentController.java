@@ -51,7 +51,7 @@ public class DepartmentController {
 	}
 
 	// delete
-	@RequestMapping(value = "department/delete/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "department/delete/{id}", method = {RequestMethod.GET,RequestMethod.DELETE})
 	@ResponseStatus(HttpStatus.OK)
 	public void Department(@PathVariable("id") Long id) {
 		Department deleteDepartment = service.readById(id);

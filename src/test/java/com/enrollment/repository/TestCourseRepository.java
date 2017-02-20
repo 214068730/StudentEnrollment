@@ -1,5 +1,7 @@
 package com.enrollment.repository;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -95,6 +97,13 @@ public class TestCourseRepository extends AbstractTestNGSpringContextTests{
 	}
 	
 	@Test(dependsOnMethods = "testReadAllCourses")
+	public void testStudentCourse() throws Exception{
+		List<Course> course = courseRepo.findByStudentStudentID(2L);
+		Assert.assertNotNull(course);
+		
+	}	
+	
+	@Test(dependsOnMethods = "testStudentCourse")
 	public void testDeleteCourse() throws Exception{
 		
 		Course course = courseRepo.findOne(1L);

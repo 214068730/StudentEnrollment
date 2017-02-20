@@ -46,5 +46,15 @@ public class CourseServiceImpl implements CourseService {
 		repo.delete(entity);
 
 	}
-
+	
+	@Override
+	public List<Course> findCourseByStudentNumber(Long studentNumber){
+		List<Course> courseList = new ArrayList<Course>();
+		Iterable<Course> courses = repo.findByStudentStudentID(studentNumber);
+		for (Course c : courses) {
+			courseList.add(c);
+		}
+		return courseList;
+		
+	} 
 }

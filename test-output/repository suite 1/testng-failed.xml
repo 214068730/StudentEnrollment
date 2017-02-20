@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [repository suite 1]">
+  <test name="Regression suite 1(failed)">
+    <classes>
+      <class name="com.enrollment.repository.TestLecturerRepository">
+        <methods>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="testDeleteLecturer"/>
+          <include name="testReadAllLecturers"/>
+          <include name="springTestContextAfterTestMethod"/>
+          <include name="testUpdateLecturer"/>
+          <include name="testCreateLecturer"/>
+        </methods>
+      </class> <!-- com.enrollment.repository.TestLecturerRepository -->
+      <class name="com.enrollment.repository.TestDepartmentRepository">
+        <methods>
+          <include name="testUpdateDepartment"/>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="testDeleteDepartment"/>
+          <include name="springTestContextAfterTestMethod"/>
+          <include name="testCreateDepartment"/>
+          <include name="testReadAllDepartments"/>
+        </methods>
+      </class> <!-- com.enrollment.repository.TestDepartmentRepository -->
+      <class name="com.enrollment.repository.TestCourseRepository">
+        <methods>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="testReadAllCourses"/>
+          <include name="testCreateCourse"/>
+          <include name="springTestContextAfterTestMethod"/>
+          <include name="testDeleteCourse"/>
+          <include name="testStudentCourse"/>
+          <include name="testUpdateCourse"/>
+        </methods>
+      </class> <!-- com.enrollment.repository.TestCourseRepository -->
+      <class name="com.enrollment.repository.TestSubjectRepository">
+        <methods>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="testReadAllSubjects"/>
+          <include name="testCreateSubject"/>
+          <include name="springTestContextAfterTestMethod"/>
+          <include name="testUpdateSubject"/>
+          <include name="testDeleteSubject"/>
+        </methods>
+      </class> <!-- com.enrollment.repository.TestSubjectRepository -->
+      <class name="com.enrollment.repository.TestStudentRepository">
+        <methods>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="springTestContextBeforeTestClass"/>
+          <include name="testStudentUpdate"/>
+          <include name="springTestContextPrepareTestInstance"/>
+          <include name="springTestContextAfterTestMethod"/>
+          <include name="testCreateStudent"/>
+          <include name="testDeleteStudent"/>
+          <include name="testReadAllStudents"/>
+        </methods>
+      </class> <!-- com.enrollment.repository.TestStudentRepository -->
+    </classes>
+  </test> <!-- Regression suite 1(failed) -->
+</suite> <!-- Failed suite [repository suite 1] -->

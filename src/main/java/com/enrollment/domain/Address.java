@@ -15,6 +15,18 @@ public class Address implements Serializable {
 
 	private String areaCode;
 
+	
+	public Address(){}
+	
+	public Address(String streetNumber, String streetName, String surbubName,
+			String areaCode) {
+		super();
+		this.streetNumber = streetNumber;
+		this.streetName = streetName;
+		this.surbubName = surbubName;
+		this.areaCode = areaCode;
+	}
+
 	public String getStreetNumber() {
 		return streetNumber;
 	}

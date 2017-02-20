@@ -18,6 +18,8 @@ public class TestSubjectRepository extends AbstractTestNGSpringContextTests{
   
 	@Autowired
 	SubjectRepository repo;
+	@Autowired 
+	LecturerRepository lectureRepo;
 	
 	@Test
 	public void testCreateSubject() throws Exception {
@@ -25,7 +27,7 @@ public class TestSubjectRepository extends AbstractTestNGSpringContextTests{
 		Subject subject = new Subject();
 		Lecturer lecturer = new Lecturer();
 				
-		lecturer.setId(9L);
+		//lecturer.setId(9L);
 		lecturer.setName("Kebogile");
 		lecturer.setSurname("Potlaki");
 		
@@ -34,6 +36,7 @@ public class TestSubjectRepository extends AbstractTestNGSpringContextTests{
 		subject.setSubjectName("Research Methodology IV");
 		
 		//save the subject in the database
+		lectureRepo.save(lecturer);
 		Subject result = repo.save(subject);
 		Assert.assertNotNull(result);
 	}
