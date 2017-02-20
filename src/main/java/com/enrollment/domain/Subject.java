@@ -14,12 +14,24 @@ public class Subject implements Serializable {
 	private long subjectID;
 
 	private String subjectName;
-	
+
 	private String subjectCode;
 
 	@OneToOne
-	@JoinColumn(name="lectureID")
+	@JoinColumn(name = "lectureID")
 	private Lecturer lecturer;
+
+	public Subject() {
+	}
+
+	public Subject(long subjectID, String subjectName, String subjectCode,
+			Lecturer lecturer) {
+		super();
+		this.subjectID = subjectID;
+		this.subjectName = subjectName;
+		this.subjectCode = subjectCode;
+		this.lecturer = lecturer;
+	}
 
 	public long getSubjectID() {
 		return subjectID;
@@ -36,7 +48,7 @@ public class Subject implements Serializable {
 	public void setSubjectName(String subjectName) {
 		this.subjectName = subjectName;
 	}
-	
+
 	public String getSubjectCode() {
 		return subjectCode;
 	}

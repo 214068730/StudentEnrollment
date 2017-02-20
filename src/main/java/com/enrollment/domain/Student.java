@@ -14,8 +14,24 @@ public class Student implements Serializable {
 	private String studentNumber;
 
 	private String studentName;
-	
+
 	private String studentSurname;
+
+	@Embedded
+	private Address studentAddress;
+
+	public Student() {
+	}
+
+	public Student(Long studentID, String studentNumber, String studentName,
+			String studentSurname, Address studentAddress) {
+		super();
+		this.studentID = studentID;
+		this.studentNumber = studentNumber;
+		this.studentName = studentName;
+		this.studentSurname = studentSurname;
+		this.studentAddress = studentAddress;
+	}
 
 	public String getStudentSurname() {
 		return studentSurname;
@@ -24,9 +40,6 @@ public class Student implements Serializable {
 	public void setStudentSurname(String studentSurname) {
 		this.studentSurname = studentSurname;
 	}
-
-	@Embedded
-	private Address studentAddress;
 
 	public Long getStudentID() {
 		return studentID;

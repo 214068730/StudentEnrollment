@@ -27,6 +27,19 @@ public class Course implements Serializable {
 	@JoinColumn(name ="departmentID")
 	Department department;
 
+	public Course(){}
+	
+	public Course(Long id, String courseCode, String courseName,
+			Student student, Subject subject, Department department) {
+		super();
+		this.id = id;
+		this.courseCode = courseCode;
+		this.courseName = courseName;
+		this.student = student;
+		this.subject = subject;
+		this.department = department;
+	}
+
 	public Long getId() {
 		return id;
 	}
