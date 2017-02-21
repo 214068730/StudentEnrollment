@@ -21,7 +21,7 @@ public class Student implements Serializable {
 	
 	private String dateCreated;
 
-	@Embedded
+	@OneToOne
 	private Address studentAddress;
 
 	public Student() {

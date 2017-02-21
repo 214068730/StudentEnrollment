@@ -4,9 +4,13 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
-@Embeddable
+@Entity
 public class Address implements Serializable {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
 	private String streetNumber;
 
 	private String streetName;
@@ -15,9 +19,9 @@ public class Address implements Serializable {
 
 	private String areaCode;
 
-	
-	public Address(){}
-	
+	public Address() {
+	}
+
 	public Address(String streetNumber, String streetName, String surbubName,
 			String areaCode) {
 		super();
