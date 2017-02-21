@@ -47,7 +47,6 @@ public class TestStudentController extends AbstractTestNGSpringContextTests {
 		Student student = restTemplate.getForObject(url, Student.class, "1");
 		Assert.assertNotNull(student);
 		Assert.assertEquals("Siraaj", student.getStudentName());
-
 	}
 
 	@Test(dependsOnMethods = "testFindById")
@@ -57,8 +56,7 @@ public class TestStudentController extends AbstractTestNGSpringContextTests {
 		Assert.assertNotNull(student);
 		student.setStudentName("Shireen");
 		restTemplate.put(BASE_URL + "/update", student);
-		Student updateStudent = restTemplate.getForObject(url, Student.class,
-				"1");
+		Student updateStudent = restTemplate.getForObject(url, Student.class, "1");
 		Assert.assertEquals("Shireen", updateStudent.getStudentName());
 	}
 
@@ -67,7 +65,6 @@ public class TestStudentController extends AbstractTestNGSpringContextTests {
 		String url = BASE_URL + "/findAll";
 		List<Student> students = restTemplate.getForObject(url, List.class);
 		Assert.assertTrue(students.size() > 0);
-
 	}
 
 	@Test(dependsOnMethods = "testFindAll")
@@ -76,7 +73,5 @@ public class TestStudentController extends AbstractTestNGSpringContextTests {
 		restTemplate.delete(url, 1);
 		Student student = restTemplate.getForObject(url, Student.class, "1");
 		Assert.assertNull(student);
-
 	}
-
 }

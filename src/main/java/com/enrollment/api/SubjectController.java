@@ -54,7 +54,7 @@ public class SubjectController {
 	// delete
 	@RequestMapping(value = "subject/delete/{id}", method ={RequestMethod.GET,RequestMethod.DELETE})
 	@ResponseStatus(HttpStatus.OK)
-	public void Subject(@PathVariable("id") Long id) {
+	public void deleteSubject(@PathVariable("id") Long id) {
 		Subject deleteSubject = service.readById(id);
 		if (deleteSubject != null) {
 			service.delete(deleteSubject);

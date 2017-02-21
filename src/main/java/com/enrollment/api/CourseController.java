@@ -61,7 +61,7 @@ public class CourseController {
 	// delete
 	@RequestMapping(value = "course/delete/{id}", method ={RequestMethod.GET,RequestMethod.DELETE})
 	@ResponseStatus(HttpStatus.OK)
-	public void Course(@PathVariable("id") Long id) {
+	public void deleteCourse(@PathVariable("id") Long id) {
 		Course deleteCourse = service.readById(id);
 		if (deleteCourse != null) {
 			service.delete(deleteCourse);

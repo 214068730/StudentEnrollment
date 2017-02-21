@@ -53,7 +53,7 @@ public class DepartmentController {
 	// delete
 	@RequestMapping(value = "department/delete/{id}", method = {RequestMethod.GET,RequestMethod.DELETE})
 	@ResponseStatus(HttpStatus.OK)
-	public void Department(@PathVariable("id") Long id) {
+	public void deleteDepartment(@PathVariable("id") Long id) {
 		Department deleteDepartment = service.readById(id);
 		if (deleteDepartment != null) {
 			service.delete(deleteDepartment);
