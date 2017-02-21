@@ -54,7 +54,7 @@ public class StudentController {
 	// delete
 	@RequestMapping(value = "/student/delete/{id}", method = {RequestMethod.GET,RequestMethod.DELETE})
 	@ResponseStatus(HttpStatus.OK)
-	public void Course(@PathVariable("id") Long id) {
+	public void deleteCourse(@PathVariable("id") Long id) {
 		Student deleteStudent = service.readById(id);
 		if (deleteStudent != null) {
 			service.delete(deleteStudent);
