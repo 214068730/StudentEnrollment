@@ -20,9 +20,8 @@ public class Department implements Serializable {
 		this.dateAdded =  new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 	}
 
-	public Department(Long departmentID, String departmentName) {
+	public Department(String departmentName) {
 		super();
-		this.departmentID = departmentID;
 		this.departmentName = departmentName;
 		this.dateAdded =  new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 	}

@@ -26,7 +26,7 @@ public class TestLecturerController extends AbstractTestNGSpringContextTests{
 	@Test
 	public void testCreate() throws Exception{
 		String url = BASE_URL + "/create";
-		Lecturer lecturer = new Lecturer(1L, "Kebogile", "Moreng");
+		Lecturer lecturer = new Lecturer("Kebogile", "Moreng");
 		restTemplate.postForObject(url, lecturer, Lecturer.class);
 	}
 	

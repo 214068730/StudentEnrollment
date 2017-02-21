@@ -22,16 +22,16 @@ public class Student implements Serializable {
 	private String dateCreated;
 
 	@OneToOne
+	@JoinColumn(name = "AddressID")
 	private Address studentAddress;
 
 	public Student() {
 		this.dateCreated =  new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 	}
 
-	public Student(Long studentID, String studentNumber, String studentName,
+	public Student(String studentNumber, String studentName,
 			String studentSurname, Address studentAddress) {
 		super();
-		this.studentID = studentID;
 		this.studentNumber = studentNumber;
 		this.studentName = studentName;
 		this.studentSurname = studentSurname;

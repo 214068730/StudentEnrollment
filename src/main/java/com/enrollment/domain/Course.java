@@ -35,10 +35,9 @@ public class Course implements Serializable {
 				.format(Calendar.getInstance().getTime());
 	}
 
-	public Course(Long id, String courseCode, String courseName,
+	public Course(String courseCode, String courseName,
 			Student student, Subject subject, Department department) {
 		super();
-		this.id = id;
 		this.courseCode = courseCode;
 		this.courseName = courseName;
 		this.student = student;

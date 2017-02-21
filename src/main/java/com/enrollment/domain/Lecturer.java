@@ -22,9 +22,8 @@ public class Lecturer implements Serializable {
 				.format(Calendar.getInstance().getTime());
 	}
 
-	public Lecturer(Long id, String name, String surname) {
+	public Lecturer(String name, String surname) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.surname = surname;
 		this.dateAdded = new SimpleDateFormat("yyyyMMdd_HHmmss")

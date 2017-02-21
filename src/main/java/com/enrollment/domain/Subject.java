@@ -30,10 +30,9 @@ public class Subject implements Serializable {
 				.format(Calendar.getInstance().getTime());
 	}
 
-	public Subject(long subjectID, String subjectName, String subjectCode,
+	public Subject(String subjectName, String subjectCode,
 			Lecturer lecturer) {
 		super();
-		this.subjectID = subjectID;
 		this.subjectName = subjectName;
 		this.subjectCode = subjectCode;
 		this.lecturer = lecturer;

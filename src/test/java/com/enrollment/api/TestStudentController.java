@@ -36,7 +36,7 @@ public class TestStudentController extends AbstractTestNGSpringContextTests {
 	public void testCreate() {
 		String url = BASE_URL + "/create";
 		Address address = new Address("15", "Sparrow", "ROCKLANDS", "RCKLDS");
-		Student student = new Student(1L, "214068730", "Siraaj", "Wilkinson",
+		Student student = new Student("214068730", "Siraaj", "Wilkinson",
 				address);
 		restTemplate.postForObject(url, student, Student.class);
 	}
