@@ -3,32 +3,38 @@ package com.enrollment.domain;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 @Entity
 @Table(name = "tblCourse")
 public class Course implements Serializable {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
 	String courseCode;
 	String courseName;
-	
+
 	@ManyToOne
-	@JoinColumn(name="studentID")
+	@JoinColumn(name = "studentID")
 	Student student;
-	
+
 	@ManyToOne
-	@JoinColumn(name ="subjectID")
+	@JoinColumn(name = "subjectID")
 	Subject subject;
-	
+
 	@OneToOne
-	@JoinColumn(name ="departmentID")
+	@JoinColumn(name = "departmentID")
 	Department department;
 
-	public Course(){}
-	
+	String dateRegistered;
+
+	public Course() {
+		this.dateRegistered = new SimpleDateFormat("yyyyMMdd_HHmmss")
+				.format(Calendar.getInstance().getTime());
+	}
+
 	public Course(Long id, String courseCode, String courseName,
 			Student student, Subject subject, Department department) {
 		super();
@@ -38,6 +44,8 @@ public class Course implements Serializable {
 		this.student = student;
 		this.subject = subject;
 		this.department = department;
+		this.dateRegistered = new SimpleDateFormat("yyyyMMdd_HHmmss")
+				.format(Calendar.getInstance().getTime());
 	}
 
 	public Long getId() {
@@ -86,5 +94,9 @@ public class Course implements Serializable {
 
 	public void setDepartment(Department department) {
 		this.department = department;
+	}
+
+	public String getDateRegistered() {
+		return this.dateRegistered;
 	}
 }

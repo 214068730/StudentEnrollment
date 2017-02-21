@@ -1,10 +1,15 @@
 C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\domain\TestAddress.java
 C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\repository\TestDepartmentRepository.java
+C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\api\TestSubjectController.java
 C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\repository\TestStudentRepository.java
 C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\repository\TestLecturerRepository.java
 C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\domain\TestCourse.java
+C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\api\TestStudentController.java
+C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\api\TestDeaprtmentController.java
+C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\api\TestCourseController.java
 C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\domain\TestLecturer.java
 C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\AppTest.java
+C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\api\TestLecturerController.java
 C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\domain\TestSubject.java
 C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\domain\TestStudent.java
 C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\repository\TestCourseRepository.java

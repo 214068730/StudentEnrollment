@@ -1,5 +1,7 @@
 package com.enrollment.api;
 
+import java.util.List;
+
 import org.testng.annotations.Test;
 import org.junit.Assert;
 import org.junit.Before;
@@ -18,15 +20,9 @@ import com.enrollment.App;
 import com.enrollment.domain.Address;
 import com.enrollment.domain.Student;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
 
-import static org.aspectj.lang.reflect.DeclareAnnotation.Kind.Type;
-import static org.hamcrest.core.IsNull.notNullValue;
-import static org.junit.Assert.assertThat;
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = App.class)

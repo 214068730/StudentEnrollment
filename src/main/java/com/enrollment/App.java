@@ -40,5 +40,4 @@ public class App extends WebMvcConfigurerAdapter {
 		System.out.println("Hello World!");
 
 	}
-
 }
