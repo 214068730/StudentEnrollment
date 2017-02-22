@@ -10,7 +10,7 @@ public class Address implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long addressID;
 	
 	private String streetNumber;
 
@@ -21,6 +21,14 @@ public class Address implements Serializable {
 	private String areaCode;
 
 	public Address() {
+	}
+
+	public Long getAddressID() {
+		return addressID;
+	}
+
+	public void setAddressID(Long addressID) {
+		this.addressID = addressID;
 	}
 
 	public Address(String streetNumber, String streetName, String surbubName,
