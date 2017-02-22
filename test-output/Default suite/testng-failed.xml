@@ -3,20 +3,16 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.enrollment.api.TestStudentController">
+      <class name="com.enrollment.api.TestSubjectController">
         <methods>
           <include name="springTestContextAfterTestClass"/>
           <include name="springTestContextBeforeTestClass"/>
           <include name="springTestContextBeforeTestMethod"/>
-          <include name="testCreate"/>
+          <include name="testCreateSubject"/>
           <include name="springTestContextPrepareTestInstance"/>
-          <include name="testFindAll"/>
           <include name="springTestContextAfterTestMethod"/>
-          <include name="testDelete"/>
-          <include name="testUpdate"/>
-          <include name="testFindById"/>
         </methods>
-      </class> <!-- com.enrollment.api.TestStudentController -->
+      </class> <!-- com.enrollment.api.TestSubjectController -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

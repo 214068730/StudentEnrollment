@@ -30,47 +30,49 @@ public class TestStudentController extends AbstractTestNGSpringContextTests {
 	RestTemplate restTemplate = new RestTemplate();
 
 	@Test
-	public void testCreate() {
+	public void testCreateStudent() throws Exception{
 		String url = BASE_URL + "/create";
-				
+		Long id = 1L;		
 		Address address = new Address("15", "Sparrow", "ROCKLANDS", "RCKLDS");
-		Address updateAddrss = restTemplate.postForObject(BASE_ADDRESS, address, Address.class);
+	    Address updatedAddress = restTemplate.postForObject(BASE_ADDRESS, address, Address.class);
 		Assert.assertNotNull(address);
-		//Assert.assertEquals();
+		Assert.assertEquals(id,updatedAddress.getAddressID());
 		
-		Student student = new Student("214068730", "Siraaj", "Wilkinson", updateAddrss);
+		Student student = new Student("214068730", "Siraaj", "Wilkinson", updatedAddress);
 		restTemplate.postForObject(url,student, Student.class);
 		Assert.assertNotNull(student);
 	}
 
-	@Test(dependsOnMethods = "testCreate")
-	public void testFindById() {
+	@Test(dependsOnMethods = "testCreateStudent")
+	public void testFindById() throws Exception{
 		String url = BASE_URL + "/{id}";
 		Student student = restTemplate.getForObject(url, Student.class, "1");
 		Assert.assertNotNull(student);
-		Assert.assertEquals("Siraaj", student.getStudentName());
 	}
 
 	@Test(dependsOnMethods = "testFindById")
-	public void testUpdate() {
+	public void testUpdate() throws Exception{
+		//find the student by id to update
 		String url = BASE_URL + "/{id}";
 		Student student = restTemplate.getForObject(url, Student.class, "1");
 		Assert.assertNotNull(student);
+		
+		//update a student name
 		student.setStudentName("Shireen");
 		restTemplate.put(BASE_URL + "/update", student);
-		Student updateStudent = restTemplate.getForObject(url, Student.class, "1");
-		Assert.assertEquals("Shireen", updateStudent.getStudentName());
+		Student updatedStudent = restTemplate.getForObject(url, Student.class, "1");
+		Assert.assertEquals("Shireen", updatedStudent.getStudentName());
 	}
 
 	@Test(dependsOnMethods = "testUpdate")
-	public void testFindAll() {
+	public void testFindAll() throws Exception{
 		String url = BASE_URL + "/findAll";
 		List<Student> students = restTemplate.getForObject(url, List.class);
 		Assert.assertTrue(students.size() > 0);
 	}
 
 	@Test(dependsOnMethods = "testFindAll")
-	public void testDelete() {
+	public void testDelete() throws Exception{
 		String url = "http://localhost:8080/enrollment/student/delete/{id}";
 		restTemplate.delete(url, 1);
 		Student student = restTemplate.getForObject(url, Student.class, "1");

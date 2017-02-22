@@ -61,6 +61,6 @@ public class TestLecturerController extends AbstractTestNGSpringContextTests{
 		String url = "http://localhost:8080/enrollment/lecturer/delete/{id}";
 		restTemplate.delete(url, 1);
 		Lecturer lecturer = restTemplate.getForObject(url, Lecturer.class, "1");
-		Assert.assertNotNull(lecturer);
+		Assert.assertNull(lecturer);
 	}
 }
