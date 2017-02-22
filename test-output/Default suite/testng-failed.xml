@@ -3,31 +3,20 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.enrollment.api.TestStudentController">
+      <class name="com.enrollment.api.TestDeaprtmentController">
         <methods>
+          <include name="testFindById"/>
           <include name="springTestContextAfterTestClass"/>
           <include name="springTestContextBeforeTestClass"/>
+          <include name="testDelete"/>
           <include name="springTestContextBeforeTestMethod"/>
-          <include name="testCreate"/>
-          <include name="springTestContextPrepareTestInstance"/>
           <include name="testFindAll"/>
+          <include name="springTestContextPrepareTestInstance"/>
           <include name="springTestContextAfterTestMethod"/>
-<<<<<<< HEAD
-          <include name="testDelete"/>
-=======
-<<<<<<< HEAD
-          <include name="testDelete"/>
-=======
-<<<<<<< HEAD
-        </methods>
-      </class> <!-- com.enrollment.service.TestCourseService -->
-=======
->>>>>>> 60b134a0250938bde9f4ef7d65cab58b71210da7
->>>>>>> 9d49003459a50dc3355433da2d880ddb52adef5b
           <include name="testUpdate"/>
-          <include name="testFindById"/>
+          <include name="testCreate"/>
         </methods>
-      </class> <!-- com.enrollment.api.TestStudentController -->
+      </class> <!-- com.enrollment.api.TestDeaprtmentController -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
