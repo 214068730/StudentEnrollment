@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.enrollment.domain.Address;
 import com.enrollment.domain.Course;
 import com.enrollment.repository.AddressRepository;
 import com.enrollment.service.AddressService;
 
+@Service
 public class AddressServiceImpl implements AddressService {
 
 	@Autowired
