@@ -20,25 +20,27 @@ import com.enrollment.App;
 import com.enrollment.domain.Address;
 import com.enrollment.domain.Student;
 
-
-
-
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = App.class)
 @WebAppConfiguration
 public class TestStudentController extends AbstractTestNGSpringContextTests {
 
 	String BASE_URL = "http://localhost:8080/enrollment/student";
+	String BASE_ADDRESS = "http://localhost:8080/enrollment/address/create";
 	RestTemplate restTemplate = new RestTemplate();
 
 	@Test
 	public void testCreate() {
 		String url = BASE_URL + "/create";
+				
 		Address address = new Address("15", "Sparrow", "ROCKLANDS", "RCKLDS");
-		Student student = new Student("214068730", "Siraaj", "Wilkinson",
-				address);
-		restTemplate.postForObject(url, student, Student.class);
+		Address updateAddrss = restTemplate.postForObject(BASE_ADDRESS, address, Address.class);
+		Assert.assertNotNull(address);
+		//Assert.assertEquals();
+		
+		Student student = new Student("214068730", "Siraaj", "Wilkinson", updateAddrss);
+		restTemplate.postForObject(url,student, Student.class);
+		Assert.assertNotNull(student);
 	}
 
 	@Test(dependsOnMethods = "testCreate")

@@ -17,7 +17,9 @@ import com.enrollment.domain.Student;
 public class TestStudentService extends AbstractTestNGSpringContextTests {
   
 	@Autowired
-	StudentService service;
+	StudentService studentService;
+	@Autowired
+	AddressService addressService;
 	
 	@Test
 	public void testCreateStudent() throws Exception{
@@ -28,43 +30,45 @@ public class TestStudentService extends AbstractTestNGSpringContextTests {
 		address.setStreetName("Delport Street");
 		address.setStreetNumber("12");
 		address.setSurbubName("Wetton");
+		Address createAddress = addressService.create(address);
+		Assert.assertNotNull(createAddress);
 		
-		student.setStudentAddress(address);
+		student.setStudentAddress(createAddress);
 		student.setStudentID(3L);
 		student.setStudentName("Matthew");
 		student.setStudentNumber("2839744");
 		student.setStudentSurname("Kok");
 		
-		Student result = service.create(student);
+		Student result = studentService.create(student);
 		Assert.assertNotNull(result);
 	}
 	
 	@Test(dependsOnMethods = "testCreateStudent")
 	public void testUpdateStudent() throws Exception{
-		Student student = service.readById(1L);
+		Student student = studentService.readById(1L);
 		
 		if (student != null)
 		{
 			student.setStudentSurname("Smith");
-			Student updatedStudent = service.create(student);
+			Student updatedStudent = studentService.create(student);
 			Assert.assertEquals("Smith", updatedStudent.getStudentSurname());
 		}
 	}
 	
 	@Test(dependsOnMethods = "testUpdateStudent")
 	public void testReadAllStudents() throws Exception{
-		Iterable<Student> students = service.readAll();
+		Iterable<Student> students = studentService.readAll();
 		Assert.assertNotNull(students);
 	}
 	
 	@Test(dependsOnMethods = "testReadAllStudents")
 	public void testDeleteStudent() throws Exception{
-		Student student = service.readById(1L);
+		Student student = studentService.readById(1L);
 		
 		if (student != null)
 		{
-			service.delete(student);
-			Student deletedStudent = service.readById(1L);
+			studentService.delete(student);
+			Student deletedStudent = studentService.readById(1L);
 			Assert.assertNull(deletedStudent);
 		}
 	}	

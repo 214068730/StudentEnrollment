@@ -18,18 +18,21 @@ public class TestStudentRepository extends AbstractTestNGSpringContextTests {
 
 	@Autowired
 	StudentRepository repo;
-
+	@Autowired
+	AddressRepository addressRepo;
+	
 	@Test
 	public void testCreateStudent()throws Exception {
-		Address address = new Address();
 		Student student = new Student();
-
+		Address address = new Address();
+		
 		address.setAreaCode("RCKLS");
 		address.setStreetName("Sparrow");
 		address.setStreetNumber("15");
 		address.setSurbubName("Rocklands");
+		Address createAddress = addressRepo.save(address);
 
-		student.setStudentAddress(address);
+		student.setStudentAddress(createAddress);
 		student.setStudentID(275L);
 		student.setStudentName("Siraaj");
 		student.setStudentNumber("214068730");

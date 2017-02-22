@@ -40,7 +40,5 @@ public class TestStudent extends TestCase {
 		
 		//test new values 
 		Assert.assertEquals("Kebo", student.getStudentName());
-		
 	}
-
 }

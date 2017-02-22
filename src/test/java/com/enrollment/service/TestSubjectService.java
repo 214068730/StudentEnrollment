@@ -16,7 +16,9 @@ import com.enrollment.domain.Subject;
 public class TestSubjectService extends AbstractTestNGSpringContextTests{
   
 	@Autowired
-	SubjectService service;
+	SubjectService subjectService;
+	@Autowired
+	LecturerService lecturerService;
 	
 	@Test
 	public void testCreateSubject() throws Exception {
@@ -26,19 +28,21 @@ public class TestSubjectService extends AbstractTestNGSpringContextTests{
 		lecturer.setId(22L);
 		lecturer.setName("Lee-Anne");
 		lecturer.setSurname("Hero");
+		Lecturer createLecturer = lecturerService.create(lecturer);
+		Assert.assertNotNull(createLecturer);
 		
-		subject.setLecturer(lecturer);
+		subject.setLecturer(createLecturer);
 		subject.setSubjectCode("OND23GP");
 		subject.setSubjectID(23L);
 		subject.setSubjectName("Information System III");
 		
-		Subject result = service.create(subject);
+		Subject result = subjectService.create(subject);
 		Assert.assertNotNull(result);
 	}
 	
 	@Test(dependsOnMethods = "testCreateSubject")
 	public void testUpdateSubject() throws Exception{
-		Subject subject = service.readById(1L);
+		Subject subject = subjectService.readById(1L);
 		Lecturer lecturer = subject.getLecturer();
 		
 		if (subject != null)
@@ -48,7 +52,7 @@ public class TestSubjectService extends AbstractTestNGSpringContextTests{
 			subject.setLecturer(lecturer);
 			Lecturer updatedLecturer = subject.getLecturer();
 			
-			Subject updatedSubject = service.create(subject);
+			Subject updatedSubject = subjectService.create(subject);
 			Assert.assertEquals(updatedSubject.getSubjectCode(), "FTP23TS");
 			Assert.assertEquals(updatedLecturer.getSurname(), "Magowa");	
 		}
@@ -56,18 +60,18 @@ public class TestSubjectService extends AbstractTestNGSpringContextTests{
 	
 	@Test(dependsOnMethods = "testUpdateSubject")
 	public void testReadAllSubjects() throws Exception{
-		Iterable<Subject> subjects = service.readAll();
+		Iterable<Subject> subjects = subjectService.readAll();
 		Assert.assertNotNull(subjects);
 	}
 	
 	@Test(dependsOnMethods = "testReadAllSubjects")
 	public void testDeleteSubject() throws Exception{
-		Subject subject = service.readById(1L);
+		Subject subject = subjectService.readById(1L);
 		
 		if (subject != null)
 		{
-			service.delete(subject);
-			Subject deletedSubject = service.readById(1L);
+			subjectService.delete(subject);
+			Subject deletedSubject = subjectService.readById(1L);
 			Assert.assertNull(deletedSubject);
 		}
 	}

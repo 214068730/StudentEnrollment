@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [repository suite 1]">
+<suite name="Failed suite [service suite 1]">
   <test name="Regression suite 1(failed)">
     <classes>
-      <class name="com.enrollment.repository.TestDepartmentRepository">
+      <class name="com.enrollment.service.TestCourseService">
         <methods>
           <include name="springTestContextAfterTestClass"/>
           <include name="springTestContextBeforeTestClass"/>
@@ -11,8 +11,8 @@
           <include name="springTestContextPrepareTestInstance"/>
           <include name="springTestContextAfterTestMethod"/>
         </methods>
-      </class> <!-- com.enrollment.repository.TestDepartmentRepository -->
-      <class name="com.enrollment.repository.TestSubjectRepository">
+      </class> <!-- com.enrollment.service.TestCourseService -->
+      <class name="com.enrollment.service.TestLecturerService">
         <methods>
           <include name="springTestContextAfterTestClass"/>
           <include name="springTestContextBeforeTestClass"/>
@@ -20,8 +20,21 @@
           <include name="springTestContextPrepareTestInstance"/>
           <include name="springTestContextAfterTestMethod"/>
         </methods>
-      </class> <!-- com.enrollment.repository.TestSubjectRepository -->
-      <class name="com.enrollment.repository.TestCourseRepository">
+      </class> <!-- com.enrollment.service.TestLecturerService -->
+      <class name="com.enrollment.service.TestSubjectService">
+        <methods>
+          <include name="testCreateSubject"/>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="springTestContextBeforeTestClass"/>
+          <include name="testUpdateSubject"/>
+          <include name="testDeleteSubject"/>
+          <include name="springTestContextBeforeTestMethod"/>
+          <include name="springTestContextPrepareTestInstance"/>
+          <include name="testReadAllSubjects"/>
+          <include name="springTestContextAfterTestMethod"/>
+        </methods>
+      </class> <!-- com.enrollment.service.TestSubjectService -->
+      <class name="com.enrollment.service.TestStudentService">
         <methods>
           <include name="springTestContextAfterTestClass"/>
           <include name="springTestContextBeforeTestClass"/>
@@ -29,8 +42,8 @@
           <include name="springTestContextPrepareTestInstance"/>
           <include name="springTestContextAfterTestMethod"/>
         </methods>
-      </class> <!-- com.enrollment.repository.TestCourseRepository -->
-      <class name="com.enrollment.repository.TestLecturerRepository">
+      </class> <!-- com.enrollment.service.TestStudentService -->
+      <class name="com.enrollment.service.TestDepartmentService">
         <methods>
           <include name="springTestContextAfterTestClass"/>
           <include name="springTestContextBeforeTestClass"/>
@@ -38,20 +51,7 @@
           <include name="springTestContextPrepareTestInstance"/>
           <include name="springTestContextAfterTestMethod"/>
         </methods>
-      </class> <!-- com.enrollment.repository.TestLecturerRepository -->
-      <class name="com.enrollment.repository.TestStudentRepository">
-        <methods>
-          <include name="springTestContextAfterTestClass"/>
-          <include name="springTestContextBeforeTestClass"/>
-          <include name="springTestContextBeforeTestMethod"/>
-          <include name="testStudentUpdate"/>
-          <include name="springTestContextPrepareTestInstance"/>
-          <include name="springTestContextAfterTestMethod"/>
-          <include name="testCreateStudent"/>
-          <include name="testDeleteStudent"/>
-          <include name="testReadAllStudents"/>
-        </methods>
-      </class> <!-- com.enrollment.repository.TestStudentRepository -->
+      </class> <!-- com.enrollment.service.TestDepartmentService -->
     </classes>
   </test> <!-- Regression suite 1(failed) -->
-</suite> <!-- Failed suite [repository suite 1] -->
+</suite> <!-- Failed suite [service suite 1] -->

@@ -2,6 +2,7 @@
 <suite name="repository suite 1" verbose="1" >
   <test name="Regression suite 1" >
     <classes>
+      <class name="com.enrollment.repository.TestAddressRepository"/>
       <class name="com.enrollment.repository.TestStudentRepository"/>
       <class name="com.enrollment.repository.TestSubjectRepository"/>
       <class name="com.enrollment.repository.TestLecturerRepository"/>
