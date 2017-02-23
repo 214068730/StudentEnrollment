@@ -50,7 +50,7 @@ public class StudentServiceImpl implements StudentService {
 
 	public Student findByStudentNumberAndStudentName(String studentNumber,
 			String studentName) {
-		Student student = repo.findByStudentNumberAndStudentName(studentNumber,
+		Student student = repo.findByStudentNumberAndStudentNameIgnoringCase(studentNumber,
 				studentName);
 		return student;
 	}
