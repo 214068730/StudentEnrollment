@@ -48,8 +48,15 @@ public class StudentServiceImpl implements StudentService {
 		repo.delete(entity);
 	}
 
-	public Student findByStudentNumberAndStudentName(String studentNumber,String studentName){
-		Student student = repo.findByStudentNumberAndStudentName(studentNumber, studentName);
+	public Student findByStudentNumberAndStudentName(String studentNumber,
+			String studentName) {
+		Student student = repo.findByStudentNumberAndStudentName(studentNumber,
+				studentName);
+		return student;
+	}
+
+	public Student findByStudentNumber(String studentNumber) {
+		Student student = repo.findByStudentNumber(studentNumber);
 		return student;
 	}
 }

@@ -12,4 +12,5 @@ import com.enrollment.domain.Student;
 public interface StudentRepository extends CrudRepository<Student, Long>{
 
 	public Student findByStudentNumberAndStudentName(String studentNumber,String studentName);
+	public Student findByStudentNumber(String studentNumber);
 }

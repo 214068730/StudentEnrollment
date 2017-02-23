@@ -57,6 +57,13 @@ public class StudentController {
 	public Student findLogin(@PathVariable String studentNumber,@PathVariable String studentName) {
 		return service.findByStudentNumberAndStudentName(studentNumber, studentName);
 	}
+	
+	//findByStudentNumber
+	@RequestMapping(value = "/student/findByStudentNumber/{studentNumber}", method = RequestMethod.GET)
+	@ResponseBody
+	public Student findByStudentNumber(@PathVariable String studentNumber) {
+		return service.findByStudentNumber(studentNumber);
+	}
 
 	// delete
 	@RequestMapping(value = "/student/delete/{id}", method = {RequestMethod.GET,RequestMethod.DELETE})
