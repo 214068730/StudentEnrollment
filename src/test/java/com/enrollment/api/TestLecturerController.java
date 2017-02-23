@@ -2,18 +2,22 @@ package com.enrollment.api;
 
 import java.util.List;
 
+import org.testng.annotations.Test;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.data.domain.Page;
+import org.springframework.http.*;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.client.RestTemplate;
-import org.testng.annotations.Test;
 
 import com.enrollment.App;
 import com.enrollment.domain.Lecturer;
-import com.enrollment.domain.Student;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = App.class)
@@ -24,13 +28,13 @@ public class TestLecturerController extends AbstractTestNGSpringContextTests{
 	RestTemplate restTemplate = new RestTemplate();
 	
 	@Test
-	public void testCreate() throws Exception{
+	public void testCreateLecturer() throws Exception{
 		String url = BASE_URL + "/create";
 		Lecturer lecturer = new Lecturer("Kebogile", "Moreng");
 		restTemplate.postForObject(url, lecturer, Lecturer.class);
 	}
 	
-	@Test(dependsOnMethods = "testCreate")
+	@Test(dependsOnMethods = "testCreateLecturer")
 	public void testFindById() throws Exception{
 		String url = BASE_URL + "/{id}";
 		Lecturer lecturer = restTemplate.getForObject(url, Lecturer.class, "1" );

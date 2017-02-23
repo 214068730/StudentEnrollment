@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="api suite 1" verbose="1" >
+  <test name="Regression suite 1" >
+    <classes>
+      <class name="com.enrollment.api.TestStudentController"/>
+      <class name="com.enrollment.api.TestAddressController"/>
+      <class name="com.enrollment.api.TestLecturerController"/>
+      <class name="com.enrollment.api.TestSubjectController"/>
+      <class name="com.enrollment.api.TestDepartmentController"/>
+      <class name="com.enrollment.api.TestCourseController"/>
+    </classes>
+ </test>
+</suite>
