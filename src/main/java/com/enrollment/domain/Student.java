@@ -31,7 +31,7 @@ public class Student implements Serializable {
 	public Student() {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
-		this.dateCreated = dateFormat.format(date);
+		this.dateCreated = dateFormat.format(date).toString();
 	}
 
 	public Student(String studentNumber, String studentName,
@@ -43,7 +43,7 @@ public class Student implements Serializable {
 		this.studentName = studentName;
 		this.studentSurname = studentSurname;
 		this.studentAddress = studentAddress;
-		this.dateCreated =  dateFormat.format(date);
+		this.dateCreated =  dateFormat.format(date).toString();
 	}
 
 	public String getStudentSurname() {
