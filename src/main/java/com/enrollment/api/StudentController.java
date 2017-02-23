@@ -50,6 +50,13 @@ public class StudentController {
 	public List<Student> findAll() {
 		return service.readAll();
 	}
+	
+	//login
+	@RequestMapping(value = "/student/findAll/{studentNumber}/{studentName}", method = RequestMethod.GET)
+	@ResponseBody
+	public Student findLogin(@PathVariable String studentNumber,@PathVariable String studentName) {
+		return service.findByStudentNumberAndStudentName(studentNumber, studentName);
+	}
 
 	// delete
 	@RequestMapping(value = "/student/delete/{id}", method = {RequestMethod.GET,RequestMethod.DELETE})

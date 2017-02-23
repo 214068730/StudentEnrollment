@@ -35,7 +35,7 @@ public class TestStudentController extends AbstractTestNGSpringContextTests {
 		Long id = 1L;		
 		Address address = new Address("15", "Sparrow", "ROCKLANDS", "RCKLDS");
 	    Address updatedAddress = restTemplate.postForObject(BASE_ADDRESS, address, Address.class);
-		Assert.assertNotNull(address);
+		Assert.assertNotNull(updatedAddress);
 		Assert.assertEquals(id,updatedAddress.getAddressID());
 		
 		Student student = new Student("214068730", "Siraaj", "Wilkinson", updatedAddress);

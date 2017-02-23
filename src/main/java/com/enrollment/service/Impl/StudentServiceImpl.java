@@ -47,4 +47,9 @@ public class StudentServiceImpl implements StudentService {
 	public void delete(Student entity) {
 		repo.delete(entity);
 	}
+
+	public Student findByStudentNumberAndStudentName(String studentNumber,String studentName){
+		Student student = repo.findByStudentNumberAndStudentName(studentNumber, studentName);
+		return student;
+	}
 }
