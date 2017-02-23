@@ -13,6 +13,7 @@ public class Student implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long studentID;
 
+	@Column(unique = true)
 	private String studentNumber;
 
 	private String studentName;
