@@ -1,8 +1,10 @@
 package com.enrollment.domain;
 
 import java.io.Serializable;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
@@ -26,18 +28,19 @@ public class Subject implements Serializable {
 	private Lecturer lecturer;
 
 	public Subject() {
-		this.dateAdded = new SimpleDateFormat("yyyyMMdd_HHmmss")
-				.format(Calendar.getInstance().getTime());
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date();
+		this.dateAdded = dateFormat.format(date);
 	}
 
-	public Subject(String subjectName, String subjectCode,
-			Lecturer lecturer) {
+	public Subject(String subjectName, String subjectCode, Lecturer lecturer) {
 		super();
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date();
 		this.subjectName = subjectName;
 		this.subjectCode = subjectCode;
 		this.lecturer = lecturer;
-		this.dateAdded = new SimpleDateFormat("yyyyMMdd_HHmmss")
-				.format(Calendar.getInstance().getTime());
+		this.dateAdded = dateFormat.format(date);
 	}
 
 	public long getSubjectID() {

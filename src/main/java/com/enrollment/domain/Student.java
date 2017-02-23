@@ -1,8 +1,10 @@
 package com.enrollment.domain;
 
 import java.io.Serializable;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.*;
 
@@ -27,17 +29,21 @@ public class Student implements Serializable {
 	private Address studentAddress;
 
 	public Student() {
-		this.dateCreated =  new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date();
+		this.dateCreated = dateFormat.format(date);
 	}
 
 	public Student(String studentNumber, String studentName,
 			String studentSurname, Address studentAddress) {
 		super();
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date();
 		this.studentNumber = studentNumber;
 		this.studentName = studentName;
 		this.studentSurname = studentSurname;
 		this.studentAddress = studentAddress;
-		this.dateCreated =  new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+		this.dateCreated =  dateFormat.format(date);
 	}
 
 	public String getStudentSurname() {
