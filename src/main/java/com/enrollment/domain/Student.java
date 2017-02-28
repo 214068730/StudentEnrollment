@@ -17,6 +17,9 @@ public class Student implements Serializable {
 
 	@Column(unique = true)
 	private String studentNumber;
+	
+	@Column(unique = true)
+	private String studentIdNumber;
 
 	private String studentName;
 
@@ -89,4 +92,14 @@ public class Student implements Serializable {
 	public String getDateCreated(){
 		return this.dateCreated;
 	}
+
+	public String getStudentIdNumber() {
+		return studentIdNumber;
+	}
+
+	public void setStudentIdNumber(String studentIdNumber) {
+		this.studentIdNumber = studentIdNumber;
+	}
+	
+	
 }

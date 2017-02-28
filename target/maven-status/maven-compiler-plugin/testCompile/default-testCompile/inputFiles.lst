@@ -15,8 +15,8 @@ C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\App
 C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\domain\TestSubject.java
 C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\service\TestLecturerService.java
 C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\service\TestDepartmentService.java
-C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\api\TestDeaprtmentController.java
 C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\api\TestCourseController.java
+C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\api\TestDepartmentController.java
 C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\domain\TestStudent.java
 C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\repository\TestCourseRepository.java
 C:\Users\swilkinson\workspace\StudentEnrollment\src\test\java\com\enrollment\domain\TestDepartment.java

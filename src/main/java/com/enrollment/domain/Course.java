@@ -31,6 +31,16 @@ public class Course implements Serializable {
 	Department department;
 
 	String dateRegistered;
+	
+	int totalFees = 0;
+
+	public int getTotalFees() {
+		return totalFees;
+	}
+
+	public void setTotalFees(int totalFees) {
+		this.totalFees = totalFees;
+	}
 
 	public Course() {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
