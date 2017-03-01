@@ -30,7 +30,7 @@ import com.enrollment.domain.Subject;
 @WebAppConfiguration
 public class TestCourseController extends AbstractTestNGSpringContextTests{
   
-	String BASE_COURSE = "http://localhost:8080/enrollment/course";
+	String BASE_COURSE = "http://localhost:8080/enrollment/studentCourse";
 	String BASE_ADDRESS = "http://localhost:8080/enrollment/address/create";
 	String BASE_STUDENT = "http://localhost:8080/enrollment/student/create";
 	String BASE_LECTURER = "http://localhost:8080/enrollment/lecturer/create";

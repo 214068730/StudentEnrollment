@@ -22,7 +22,7 @@ import com.enrollment.domain.Subject;
 public class TestCourseRepository extends AbstractTestNGSpringContextTests{
 	
 	@Autowired
-	CourseRepository courseRepo;
+	StudentCourseRepository courseRepo;
 	@Autowired
 	DepartmentRepository departmentRepo;
 	@Autowired

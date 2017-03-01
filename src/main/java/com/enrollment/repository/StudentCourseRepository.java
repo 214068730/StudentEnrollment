@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.enrollment.domain.StudentCourse;
 
 @Repository
-public interface CourseRepository extends CrudRepository<StudentCourse,Long>  {
+public interface StudentCourseRepository extends CrudRepository<StudentCourse,Long>  {
 
 	public List<StudentCourse> findByStudentStudentID(Long studentID);
 }

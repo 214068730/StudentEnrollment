@@ -20,7 +20,7 @@ import com.enrollment.domain.Subject;
 @WebAppConfiguration
 public class TestCourseService extends AbstractTestNGSpringContextTests{
 	@Autowired
-	CourseService courseService;
+	StudentCourseService courseService;
 	@Autowired
 	StudentService studentService;
 	@Autowired

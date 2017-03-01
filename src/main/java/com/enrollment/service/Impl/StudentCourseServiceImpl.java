@@ -7,14 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.enrollment.domain.StudentCourse;
-import com.enrollment.repository.CourseRepository;
-import com.enrollment.service.CourseService;
+import com.enrollment.repository.StudentCourseRepository;
+import com.enrollment.service.StudentCourseService;
 
 @Service
-public class CourseServiceImpl implements CourseService {
+public class StudentCourseServiceImpl implements StudentCourseService {
 
 	@Autowired
-	CourseRepository repo;
+	StudentCourseRepository repo;
 
 	@Override
 	public StudentCourse create(StudentCourse entity) {

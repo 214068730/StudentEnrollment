@@ -13,24 +13,24 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 
 import com.enrollment.domain.StudentCourse;
-import com.enrollment.service.Impl.CourseServiceImpl;
+import com.enrollment.service.Impl.StudentCourseServiceImpl;
 
 @RestController
 @RequestMapping(value = "/enrollment")
-public class CourseController {
+public class StudentCourseController {
 
 	@Autowired
-	CourseServiceImpl service;
+	StudentCourseServiceImpl service;
 
 	// find by id
-	@RequestMapping(value = "course/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "studentCourse/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public StudentCourse findById(@PathVariable Long id) {
 		return service.readById(id);
 	}
 
 	// insert
-	@RequestMapping(value = "/course/create", method = RequestMethod.POST)
+	@RequestMapping(value = "/studentCourse/create", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	@ResponseBody
 	public StudentCourse create(@RequestBody StudentCourse course) {
@@ -38,28 +38,28 @@ public class CourseController {
 	}
 
 	// update
-	@RequestMapping(value = "/course/update", method = RequestMethod.PUT)
+	@RequestMapping(value = "/studentCourse/update", method = RequestMethod.PUT)
 	@ResponseStatus(HttpStatus.OK)
 	public void update(@RequestBody StudentCourse course) {
 		service.update(course);
 	}
 
 	// find All
-	@RequestMapping(value = "/course/findAll", method = RequestMethod.GET)
+	@RequestMapping(value = "/studentCourse/findAll", method = RequestMethod.GET)
 	@ResponseBody
 	public List<StudentCourse> findAll() {
 		return service.readAll();
 	}
 
 	// find All by student id
-	@RequestMapping(value = "/course/findAll/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/studentCourse/findAll/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public List<StudentCourse> findAllByStudentID(@PathVariable Long id) {
 		return service.findCourseByStudentNumber(id);
 	}
 
 	// delete
-	@RequestMapping(value = "course/delete/{id}", method ={RequestMethod.GET,RequestMethod.DELETE})
+	@RequestMapping(value = "studentCourse/delete/{id}", method ={RequestMethod.GET,RequestMethod.DELETE})
 	@ResponseStatus(HttpStatus.OK)
 	public void deleteCourse(@PathVariable("id") Long id) {
 		StudentCourse deleteCourse = service.readById(id);
