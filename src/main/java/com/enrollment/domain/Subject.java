@@ -22,6 +22,10 @@ public class Subject implements Serializable {
 	private String subjectCode;
 
 	private String dateAdded;
+	
+	private double price;
+	
+	private int yearCode;
 
 	@OneToOne
 	@JoinColumn(name = "lectureID")
@@ -78,4 +82,21 @@ public class Subject implements Serializable {
 	public String getDateAdded() {
 		return this.dateAdded;
 	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public int getYearCode() {
+		return yearCode;
+	}
+
+	public void setYearCode(int yearCode) {
+		this.yearCode = yearCode;
+	}
+	
 }
