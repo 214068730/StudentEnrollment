@@ -23,7 +23,7 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.web.client.RestTemplate;
 
 import com.enrollment.domain.Address;
-import com.enrollment.domain.Course;
+import com.enrollment.domain.StudentCourse;
 import com.enrollment.domain.Student;
 
 /**

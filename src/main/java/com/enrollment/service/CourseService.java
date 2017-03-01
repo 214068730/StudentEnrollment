@@ -2,10 +2,10 @@ package com.enrollment.service;
 
 import java.util.List;
 
-import com.enrollment.domain.Course;
+import com.enrollment.domain.StudentCourse;
 
-public interface CourseService extends Service<Course,Long> {
+public interface CourseService extends Service<StudentCourse,Long> {
 	
-	public List<Course> findCourseByStudentNumber(Long studentNumber);
+	public List<StudentCourse> findCourseByStudentNumber(Long studentNumber);
 
 }

@@ -2,7 +2,7 @@ package com.enrollment.service;
 
 import java.util.List;
 
-import com.enrollment.domain.Course;
+import com.enrollment.domain.StudentCourse;
 
 public interface Service<E, ID> {
 	E create(E entity);

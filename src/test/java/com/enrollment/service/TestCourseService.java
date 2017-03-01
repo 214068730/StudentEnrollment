@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 import com.enrollment.App;
 import com.enrollment.domain.Address;
-import com.enrollment.domain.Course;
+import com.enrollment.domain.StudentCourse;
 import com.enrollment.domain.Department;
 import com.enrollment.domain.Lecturer;
 import com.enrollment.domain.Roles;
@@ -36,7 +36,7 @@ public class TestCourseService extends AbstractTestNGSpringContextTests{
 	
 	@Test
 	public void testCreateCourse() throws Exception {
-		Course course = new Course();
+		StudentCourse course = new StudentCourse();
 		
 		Address address = new Address("30", "Thulani Street", "Khayelitsha", "7467");
 		Address updatedAddress = addressService.create(address);
@@ -73,36 +73,36 @@ public class TestCourseService extends AbstractTestNGSpringContextTests{
 		course.setId(32L);
 		course.setCourseName("Information Technology");
 		course.setCourseCode("PGT30DD");
-		Course createCourse = courseService.create(course);
+		StudentCourse createCourse = courseService.create(course);
 		Assert.assertNotNull(createCourse);
 	}
 	
 	@Test(dependsOnMethods = "testCreateCourse")
 	public void testUpdateCourse() throws Exception{
-		Course course = courseService.readById(1L);
+		StudentCourse course = courseService.readById(1L);
 		
 		if (course != null)
 		{
 			course.setCourseCode("SDI38OP");
-			Course updatedCourse = courseService.update(course);
+			StudentCourse updatedCourse = courseService.update(course);
 			Assert.assertEquals(updatedCourse.getCourseCode(), "SDI38OP");
 		}
 	}
 	
 	@Test(dependsOnMethods = "testUpdateCourse")
 	public void testReadAllCourses() throws Exception{
-		Iterable<Course> course = courseService.readAll();
+		Iterable<StudentCourse> course = courseService.readAll();
 		Assert.assertNotNull(course);
 	}
 	
 	@Test(dependsOnMethods = "testReadAllCourses")
 	public void testDeleteCourse() throws Exception{
-		Course course = courseService.readById(1L);
+		StudentCourse course = courseService.readById(1L);
 		
 		if (course != null)
 		{
 			courseService.delete(course);
-			Course deletedCourse = courseService.readById(1L);
+			StudentCourse deletedCourse = courseService.readById(1L);
 			Assert.assertNull(deletedCourse);
 		}
 	}

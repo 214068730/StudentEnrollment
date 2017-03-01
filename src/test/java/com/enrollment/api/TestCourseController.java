@@ -18,7 +18,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.enrollment.App;
 import com.enrollment.domain.Address;
-import com.enrollment.domain.Course;
+import com.enrollment.domain.StudentCourse;
 import com.enrollment.domain.Department;
 import com.enrollment.domain.Lecturer;
 import com.enrollment.domain.Roles;
@@ -79,27 +79,27 @@ public class TestCourseController extends AbstractTestNGSpringContextTests{
 		Assert.assertNotNull(updatedDepartment);
 		
 		//create course
-		Course course = new Course("NPI40RP", "Information Technology: Software Development", updatedStudent, updatedSubject, updatedDepartment);
-		Course updatedCourse = restTemplate.postForObject(url, course, Course.class);
+		StudentCourse course = new StudentCourse("NPI40RP", "Information Technology: Software Development", updatedStudent, updatedSubject, updatedDepartment);
+		StudentCourse updatedCourse = restTemplate.postForObject(url, course, StudentCourse.class);
 		Assert.assertNotNull(updatedCourse);
 	}
 	
 	@Test(dependsOnMethods = "testCreateCourse")
 	public void testFindById() throws Exception{
 		String url = BASE_COURSE + "/{id}";
-		Course course = restTemplate.getForObject(url, Course.class, "1");
+		StudentCourse course = restTemplate.getForObject(url, StudentCourse.class, "1");
 		Assert.assertNotNull(course);
 	}
 	
 	@Test(dependsOnMethods = "testFindById")
 	public void testUpdate() throws Exception{
 		String url = BASE_COURSE + "/{id}";
-		Course course = restTemplate.getForObject(url, Course.class, "1");
+		StudentCourse course = restTemplate.getForObject(url, StudentCourse.class, "1");
 		Assert.assertNotNull(course);
 		
 		course.setCourseCode("DET40AB");
 		restTemplate.put(BASE_COURSE + "/update", course);
-		Course updatedCourse = restTemplate.getForObject(url, Course.class, "1");
+		StudentCourse updatedCourse = restTemplate.getForObject(url, StudentCourse.class, "1");
 		Assert.assertNotNull(updatedCourse);
 		Assert.assertEquals("DET40AB", updatedCourse.getCourseCode());
 	}
@@ -107,7 +107,7 @@ public class TestCourseController extends AbstractTestNGSpringContextTests{
 	@Test(dependsOnMethods = "testUpdate")
 	public void testFindAll() throws Exception{
 		String url = BASE_COURSE + "/findAll";
-		List<Course> courses = restTemplate.getForObject(url, List.class);
+		List<StudentCourse> courses = restTemplate.getForObject(url, List.class);
 		Assert.assertTrue(courses.size() > 0);
 	}
 	
@@ -115,7 +115,7 @@ public class TestCourseController extends AbstractTestNGSpringContextTests{
 	public void testDelete() throws Exception{
 		String url = "http://localhost:8080/enrollment/course/delete/{id}";
 		restTemplate.delete(url, 1);
-		Course deletedCourse = restTemplate.getForObject(url, Course.class, "1");
+		StudentCourse deletedCourse = restTemplate.getForObject(url, StudentCourse.class, "1");
 		Assert.assertNull(deletedCourse);
 	}
 }

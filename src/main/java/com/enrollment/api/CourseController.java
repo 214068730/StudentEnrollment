@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 
-import com.enrollment.domain.Course;
+import com.enrollment.domain.StudentCourse;
 import com.enrollment.service.Impl.CourseServiceImpl;
 
 @RestController
@@ -25,7 +25,7 @@ public class CourseController {
 	// find by id
 	@RequestMapping(value = "course/{id}", method = RequestMethod.GET)
 	@ResponseBody
-	public Course findById(@PathVariable Long id) {
+	public StudentCourse findById(@PathVariable Long id) {
 		return service.readById(id);
 	}
 
@@ -33,28 +33,28 @@ public class CourseController {
 	@RequestMapping(value = "/course/create", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	@ResponseBody
-	public Course create(@RequestBody Course course) {
+	public StudentCourse create(@RequestBody StudentCourse course) {
 		return service.create(course);
 	}
 
 	// update
 	@RequestMapping(value = "/course/update", method = RequestMethod.PUT)
 	@ResponseStatus(HttpStatus.OK)
-	public void update(@RequestBody Course course) {
+	public void update(@RequestBody StudentCourse course) {
 		service.update(course);
 	}
 
 	// find All
 	@RequestMapping(value = "/course/findAll", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Course> findAll() {
+	public List<StudentCourse> findAll() {
 		return service.readAll();
 	}
 
 	// find All by student id
 	@RequestMapping(value = "/course/findAll/{id}", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Course> findAllByStudentID(@PathVariable Long id) {
+	public List<StudentCourse> findAllByStudentID(@PathVariable Long id) {
 		return service.findCourseByStudentNumber(id);
 	}
 
@@ -62,7 +62,7 @@ public class CourseController {
 	@RequestMapping(value = "course/delete/{id}", method ={RequestMethod.GET,RequestMethod.DELETE})
 	@ResponseStatus(HttpStatus.OK)
 	public void deleteCourse(@PathVariable("id") Long id) {
-		Course deleteCourse = service.readById(id);
+		StudentCourse deleteCourse = service.readById(id);
 		if (deleteCourse != null) {
 			service.delete(deleteCourse);
 		}

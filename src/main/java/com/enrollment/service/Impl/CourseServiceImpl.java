@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.enrollment.domain.Course;
+import com.enrollment.domain.StudentCourse;
 import com.enrollment.repository.CourseRepository;
 import com.enrollment.service.CourseService;
 
@@ -17,41 +17,41 @@ public class CourseServiceImpl implements CourseService {
 	CourseRepository repo;
 
 	@Override
-	public Course create(Course entity) {
+	public StudentCourse create(StudentCourse entity) {
 		return repo.save(entity);
 	}
 
 	@Override
-	public Course readById(Long id) {
+	public StudentCourse readById(Long id) {
 		return repo.findOne(id);
 	}
 
 	@Override
-	public List<Course> readAll() {
-		List<Course> courseList = new ArrayList<Course>();
-		Iterable<Course> courses = repo.findAll();
-		for (Course c : courses) {
+	public List<StudentCourse> readAll() {
+		List<StudentCourse> courseList = new ArrayList<StudentCourse>();
+		Iterable<StudentCourse> courses = repo.findAll();
+		for (StudentCourse c : courses) {
 			courseList.add(c);
 		}
 		return courseList;
 	}
 
 	@Override
-	public Course update(Course entity) {
+	public StudentCourse update(StudentCourse entity) {
 		return repo.save(entity);
 	}
 
 	@Override
-	public void delete(Course entity) {
+	public void delete(StudentCourse entity) {
 		repo.delete(entity);
 
 	}
 	
 	@Override
-	public List<Course> findCourseByStudentNumber(Long studentNumber){
-		List<Course> courseList = new ArrayList<Course>();
-		Iterable<Course> courses = repo.findByStudentStudentID(studentNumber);
-		for (Course c : courses) {
+	public List<StudentCourse> findCourseByStudentNumber(Long studentNumber){
+		List<StudentCourse> courseList = new ArrayList<StudentCourse>();
+		Iterable<StudentCourse> courses = repo.findByStudentStudentID(studentNumber);
+		for (StudentCourse c : courses) {
 			courseList.add(c);
 		}
 		return courseList;

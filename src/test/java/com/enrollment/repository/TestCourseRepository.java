@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import com.enrollment.App;
 import com.enrollment.domain.Address;
-import com.enrollment.domain.Course;
+import com.enrollment.domain.StudentCourse;
 import com.enrollment.domain.Department;
 import com.enrollment.domain.Roles;
 import com.enrollment.domain.Student;
@@ -38,7 +38,7 @@ public class TestCourseRepository extends AbstractTestNGSpringContextTests{
 	@Test
     public void testCreateCourse() throws Exception {
 		
-		Course course = new Course();
+		StudentCourse course = new StudentCourse();
 		
 		Address address = new Address("30", "Thulani Street", "Khayelitsha", "7467");
 		Address createdAddress = addressRepo.save(address);
@@ -79,14 +79,14 @@ public class TestCourseRepository extends AbstractTestNGSpringContextTests{
 		course.setCourseName("Information Technology");
 		
 		//save the course
-		Course result = courseRepo.save(course);
+		StudentCourse result = courseRepo.save(course);
 		Assert.assertNotNull(result);
     }
 	
 	@Test(dependsOnMethods = "testCreateCourse")
 	public void testUpdateCourse() throws Exception{
 		
-		Course course = courseRepo.findOne(1L);
+		StudentCourse course = courseRepo.findOne(1L);
 		Student student = course.getStudent();
 				
 		if (course != null)
@@ -99,7 +99,7 @@ public class TestCourseRepository extends AbstractTestNGSpringContextTests{
 			course.setStudent(student);
 			
 			Student updatedStudent = course.getStudent();
-			Course updatedCourse = courseRepo.save(course);
+			StudentCourse updatedCourse = courseRepo.save(course);
 			
 			Assert.assertEquals("Electrical Engineering", updatedCourse.getCourseName());
 			Assert.assertEquals("Kalake", updatedStudent.getStudentSurname());	
@@ -109,13 +109,13 @@ public class TestCourseRepository extends AbstractTestNGSpringContextTests{
 	@Test(dependsOnMethods = "testUpdateCourse")
 	public void testReadAllCourses() throws Exception{
 		
-		Iterable<Course> course = courseRepo.findAll();
+		Iterable<StudentCourse> course = courseRepo.findAll();
 		Assert.assertNotNull(course);
 	}
 	
 	@Test(dependsOnMethods = "testReadAllCourses")
 	public void testStudentCourse() throws Exception{
-		List<Course> course = courseRepo.findByStudentStudentID(2L);
+		List<StudentCourse> course = courseRepo.findByStudentStudentID(2L);
 		Assert.assertNotNull(course);
 		
 	}	
@@ -123,12 +123,12 @@ public class TestCourseRepository extends AbstractTestNGSpringContextTests{
 	@Test(dependsOnMethods = "testStudentCourse")
 	public void testDeleteCourse() throws Exception{
 		
-		Course course = courseRepo.findOne(1L);
+		StudentCourse course = courseRepo.findOne(1L);
 		
 		if (course != null)
 		{
 			courseRepo.delete(course);
-			Course deletedCourse = courseRepo.findOne(1L);
+			StudentCourse deletedCourse = courseRepo.findOne(1L);
 			Assert.assertNull(deletedCourse);
 		}
 	}	

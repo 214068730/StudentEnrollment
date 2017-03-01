@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class TestCourse extends TestCase{
 	
-	final static Course course = new Course();
+	final static StudentCourse course = new StudentCourse();
 	final static Department department = new Department();
 	
 	@Test

@@ -9,8 +9,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 @Entity
-@Table(name = "tblCourse")
-public class Course implements Serializable {
+@Table(name = "tblStudentCourse")
+public class StudentCourse implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,13 +42,13 @@ public class Course implements Serializable {
 		this.totalFees = totalFees;
 	}
 
-	public Course() {
+	public StudentCourse() {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
 		this.dateRegistered =  dateFormat.format(date);
 	}
 
-	public Course(String courseCode, String courseName,
+	public StudentCourse(String courseCode, String courseName,
 			Student student, Subject subject, Department department) {
 		super();
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");

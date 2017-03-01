@@ -7,10 +7,10 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.enrollment.domain.Course;
+import com.enrollment.domain.StudentCourse;
 
 @Repository
-public interface CourseRepository extends CrudRepository<Course,Long>  {
+public interface CourseRepository extends CrudRepository<StudentCourse,Long>  {
 
-	public List<Course> findByStudentStudentID(Long studentID);
+	public List<StudentCourse> findByStudentStudentID(Long studentID);
 }
