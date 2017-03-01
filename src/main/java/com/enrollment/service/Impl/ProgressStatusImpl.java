@@ -47,4 +47,10 @@ public class ProgressStatusImpl implements ProgressStatusService {
 		repo.delete(entity);
 	}
 
+	@Override
+	public ProgressStatus findByStudentStudentIDAndActive(Long studentID,
+			boolean active) {
+		return repo.findByStudentStudentIDAndActive(studentID, active);
+	}
+
 }

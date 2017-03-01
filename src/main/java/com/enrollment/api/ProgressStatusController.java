@@ -30,6 +30,13 @@ public class ProgressStatusController {
 		return service.readById(id);
 	}
 
+	// find by id
+	@RequestMapping(value = "progress/grade/{studentID}/{active}", method = RequestMethod.GET)
+	@ResponseBody
+	public ProgressStatus findByGradeStatus(@PathVariable Long studentID, @PathVariable boolean active) {
+		return service.findByStudentStudentIDAndActive(studentID, active);
+	}
+
 	// insert
 	@RequestMapping(value = "/progress/create", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
