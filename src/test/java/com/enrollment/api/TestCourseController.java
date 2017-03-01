@@ -21,6 +21,7 @@ import com.enrollment.domain.Address;
 import com.enrollment.domain.Course;
 import com.enrollment.domain.Department;
 import com.enrollment.domain.Lecturer;
+import com.enrollment.domain.Roles;
 import com.enrollment.domain.Student;
 import com.enrollment.domain.Subject;
 
@@ -35,6 +36,7 @@ public class TestCourseController extends AbstractTestNGSpringContextTests{
 	String BASE_LECTURER = "http://localhost:8080/enrollment/lecturer/create";
 	String BASE_SUBJECT = "http://localhost:8080/enrollment/subject/create";
 	String BASE_DEPARTMENT = "http://localhost:8080/enrollment/department/create";
+	String BASE_ROLE = "http://localhost:8080/enrollment/roles/create";
 	
 	RestTemplate restTemplate = new RestTemplate();
 	
@@ -47,8 +49,17 @@ public class TestCourseController extends AbstractTestNGSpringContextTests{
 		Address updatedAddress = restTemplate.postForObject(BASE_ADDRESS, address, Address.class);
 		Assert.assertNotNull(updatedAddress);
 		
+		//
+		//create role 
+		Roles role = new Roles();
+	    role.setRole("A");
+	    Roles createRole = restTemplate.postForObject(BASE_ROLE, role, Roles.class);
+	    
 		//create student
-		Student student = new Student("29387383", "Kebogile", "Moreng", updatedAddress);
+		Student student = new Student("29387383", "Kebogile", "Moreng", updatedAddress,"959",createRole);
+		
+		
+		
 		Student updatedStudent = restTemplate.postForObject(BASE_STUDENT, student, Student.class);
 		Assert.assertNotNull(updatedStudent);
 		

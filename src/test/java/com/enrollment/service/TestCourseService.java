@@ -8,9 +8,11 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.testng.annotations.Test;
 
 import com.enrollment.App;
+import com.enrollment.domain.Address;
 import com.enrollment.domain.Course;
 import com.enrollment.domain.Department;
 import com.enrollment.domain.Lecturer;
+import com.enrollment.domain.Roles;
 import com.enrollment.domain.Student;
 import com.enrollment.domain.Subject;
 
@@ -27,15 +29,28 @@ public class TestCourseService extends AbstractTestNGSpringContextTests{
 	LecturerService lecturerService;
 	@Autowired
 	DepartmentService departmentService;
+	@Autowired
+	RolesService rolesService;
+	@Autowired
+	AddressService addressService;
 	
 	@Test
 	public void testCreateCourse() throws Exception {
 		Course course = new Course();
 		
+		Address address = new Address("30", "Thulani Street", "Khayelitsha", "7467");
+		Address updatedAddress = addressService.create(address);
+		
+		Roles role = new Roles();
+	    role.setRole("A");
+	    Roles roleCreated = rolesService.create(role);
+		
 		Student student = new Student();
 		student.setStudentID(23L);
 		student.setStudentName("Hope");
 		student.setStudentSurname("Molemo");
+		student.setStudentAddress(updatedAddress);
+		student.setRole(roleCreated);
 		Student createStudent = studentService.create(student);
 		Assert.assertNotNull(createStudent);
 		course.setStudent(createStudent);

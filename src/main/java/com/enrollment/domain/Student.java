@@ -30,6 +30,10 @@ public class Student implements Serializable {
 	@OneToOne
 	@JoinColumn(name = "AddressID")
 	private Address studentAddress;
+	
+	@OneToOne
+	@JoinColumn(name = "roleID")
+	private Roles role;
 
 	public Student() {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -38,7 +42,7 @@ public class Student implements Serializable {
 	}
 
 	public Student(String studentNumber, String studentName,
-			String studentSurname, Address studentAddress) {
+			String studentSurname, Address studentAddress,String studentIdNumber,Roles role) {
 		super();
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
@@ -46,7 +50,10 @@ public class Student implements Serializable {
 		this.studentName = studentName;
 		this.studentSurname = studentSurname;
 		this.studentAddress = studentAddress;
+		this.studentIdNumber = studentIdNumber;
+		this.role = role;
 		this.dateCreated =  dateFormat.format(date).toString();
+		
 	}
 
 	public String getStudentSurname() {
@@ -100,6 +107,13 @@ public class Student implements Serializable {
 	public void setStudentIdNumber(String studentIdNumber) {
 		this.studentIdNumber = studentIdNumber;
 	}
-	
+
+	public Roles getRole() {
+		return role;
+	}
+
+	public void setRole(Roles role) {
+		this.role = role;
+	}
 	
 }

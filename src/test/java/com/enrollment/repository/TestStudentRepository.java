@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.context.web.WebAppConfiguration;
+
 import java.util.List;
 
 import com.enrollment.App;
 import com.enrollment.domain.Address;
+import com.enrollment.domain.Roles;
 import com.enrollment.domain.Student;
 
 @SpringApplicationConfiguration(classes = App.class)
@@ -20,6 +22,8 @@ public class TestStudentRepository extends AbstractTestNGSpringContextTests {
 	StudentRepository repo;
 	@Autowired
 	AddressRepository addressRepo;
+	@Autowired 
+	RolesRepository roleRepo;
 	
 	@Test
 	public void testCreateStudent()throws Exception {
@@ -32,11 +36,17 @@ public class TestStudentRepository extends AbstractTestNGSpringContextTests {
 		address.setSurbubName("Rocklands");
 		Address createAddress = addressRepo.save(address);
 
+		Roles role = new Roles();
+	    role.setRole("A");
+	    Roles createRole = roleRepo.save(role);
+		
 		student.setStudentAddress(createAddress);
 		student.setStudentID(275L);
 		student.setStudentName("Siraaj");
 		student.setStudentNumber("214068730");
 		student.setStudentSurname("Wilkinson");
+		student.setStudentIdNumber("9590403");
+		student.setRole(createRole);
 		
 		Student result = repo.save(student);
 		Assert.assertNotNull(result);

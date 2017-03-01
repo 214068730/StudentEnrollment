@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 import com.enrollment.App;
 import com.enrollment.domain.Address;
+import com.enrollment.domain.Roles;
 import com.enrollment.domain.Student;
 
 
@@ -20,6 +21,8 @@ public class TestStudentService extends AbstractTestNGSpringContextTests {
 	StudentService studentService;
 	@Autowired
 	AddressService addressService;
+	@Autowired
+	RolesService rolesService;
 	
 	@Test
 	public void testCreateStudent() throws Exception{
@@ -33,7 +36,12 @@ public class TestStudentService extends AbstractTestNGSpringContextTests {
 		Address createAddress = addressService.create(address);
 		Assert.assertNotNull(createAddress);
 		
+		Roles role = new Roles();
+	    role.setRole("A");
+	    Roles createRole = rolesService.create(role);
+		
 		student.setStudentAddress(createAddress);
+		student.setRole(createRole);
 		student.setStudentID(3L);
 		student.setStudentName("Matthew");
 		student.setStudentNumber("2839744");

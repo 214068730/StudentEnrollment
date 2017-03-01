@@ -10,8 +10,10 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.testng.annotations.Test;
 
 import com.enrollment.App;
+import com.enrollment.domain.Address;
 import com.enrollment.domain.Course;
 import com.enrollment.domain.Department;
+import com.enrollment.domain.Roles;
 import com.enrollment.domain.Student;
 import com.enrollment.domain.Subject;
 
@@ -27,17 +29,32 @@ public class TestCourseRepository extends AbstractTestNGSpringContextTests{
 	StudentRepository studentRepo;
 	@Autowired
 	SubjectRepository subjectRepo;
+	@Autowired
+	AddressRepository addressRepo;
+	@Autowired
+	RolesRepository rolesRepo;
+	
 	
 	@Test
     public void testCreateCourse() throws Exception {
 		
 		Course course = new Course();
 		
+		Address address = new Address("30", "Thulani Street", "Khayelitsha", "7467");
+		Address createdAddress = addressRepo.save(address);
+		
+		Roles role = new Roles();
+	    role.setRole("A");
+	    Roles createRole = rolesRepo.save(role);
+		
 		Student student = new Student();
 		student.setStudentID(1L);
 		student.setStudentName("Kebogile");
 		student.setStudentSurname("Moreng");
 		student.setStudentNumber("20282828");
+		student.setStudentIdNumber("959040");
+		student.setStudentAddress(address);
+		student.setRole(createRole);
 		Student createStudent = studentRepo.save(student);
 		Assert.assertNotNull(createStudent);
 		course.setStudent(createStudent);
