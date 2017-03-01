@@ -56,7 +56,7 @@ public class RolesController {
 	@RequestMapping(value = "roles/delete/{id}", method = {
 			RequestMethod.GET, RequestMethod.DELETE })
 	@ResponseStatus(HttpStatus.OK)
-	public void deleteAddress(@PathVariable("id") Long id) {
+	public void deleteRoles(@PathVariable("id") Long id) {
 		Roles role = service.readById(id);
 		if (role != null) {
 			service.delete(role);
