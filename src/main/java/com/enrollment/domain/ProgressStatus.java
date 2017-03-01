@@ -26,23 +26,6 @@ public class ProgressStatus implements Serializable {
 	private String startDate;
 	private String endDate;
 	private boolean active;
-
-	public ProgressStatus() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public ProgressStatus(Long id, String currentYear, String startDate,
-			String endDate, boolean active,Student student) {
-		super();
-		this.id = id;
-		this.currentYear = currentYear;
-		this.startDate = dateFormat.format(date).toString();
-		this.endDate = endDate;
-		this.active = active;
-		this.student = student;
-	}
-
 	@ManyToOne
 	@JoinColumn(name = "studentID")
 	private Student student;
@@ -51,6 +34,22 @@ public class ProgressStatus implements Serializable {
 	private DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 	@Transient
 	private Date date = new Date();
+
+	public ProgressStatus() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public ProgressStatus(Long id, String currentYear, String startDate,
+			String endDate, boolean active, Student student) {
+		super();
+		this.id = id;
+		this.currentYear = currentYear;
+		this.startDate = dateFormat.format(date).toString();
+		this.endDate = endDate;
+		this.active = active;
+		this.student = student;
+	}
 
 	public Long getId() {
 		return id;
