@@ -15,8 +15,10 @@ public class StudentCourse implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
-	String courseCode;
-	String courseName;
+
+	@OneToOne
+	@JoinColumn(name = "courseID")
+	Course course;
 
 	@ManyToOne
 	@JoinColumn(name = "studentID")
@@ -31,34 +33,23 @@ public class StudentCourse implements Serializable {
 	Department department;
 
 	String dateRegistered;
-	
-	int totalFees = 0;
-
-	public int getTotalFees() {
-		return totalFees;
-	}
-
-	public void setTotalFees(int totalFees) {
-		this.totalFees = totalFees;
-	}
 
 	public StudentCourse() {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
-		this.dateRegistered =  dateFormat.format(date);
+		this.dateRegistered = dateFormat.format(date);
 	}
 
-	public StudentCourse(String courseCode, String courseName,
-			Student student, Subject subject, Department department) {
+	public StudentCourse(Course course, Student student, Subject subject,
+			Department department) {
 		super();
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
-		this.courseCode = courseCode;
-		this.courseName = courseName;
+		this.course = course;
 		this.student = student;
 		this.subject = subject;
 		this.department = department;
-		this.dateRegistered =  dateFormat.format(date);
+		this.dateRegistered = dateFormat.format(date);
 	}
 
 	public Long getId() {
@@ -67,22 +58,6 @@ public class StudentCourse implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getCourseCode() {
-		return courseCode;
-	}
-
-	public void setCourseCode(String courseCode) {
-		this.courseCode = courseCode;
-	}
-
-	public String getCourseName() {
-		return courseName;
-	}
-
-	public void setCourseName(String courseName) {
-		this.courseName = courseName;
 	}
 
 	public Student getStudent() {
@@ -112,4 +87,13 @@ public class StudentCourse implements Serializable {
 	public String getDateRegistered() {
 		return this.dateRegistered;
 	}
+
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+
 }

@@ -25,7 +25,7 @@ public class Subject implements Serializable {
 	
 	private double price;
 	
-	private int yearCode;
+	private int yearLevel;
 
 	@OneToOne
 	@JoinColumn(name = "lectureID")
@@ -92,11 +92,11 @@ public class Subject implements Serializable {
 	}
 
 	public int getYearCode() {
-		return yearCode;
+		return yearLevel;
 	}
 
 	public void setYearCode(int yearCode) {
-		this.yearCode = yearCode;
+		this.yearLevel = yearCode;
 	}
 	
 }
