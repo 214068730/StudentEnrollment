@@ -30,6 +30,13 @@ public class CourseController {
 		return service.readById(id);
 	}
 
+	// find by id
+	@RequestMapping(value = "course/name/{courseName}", method = RequestMethod.GET)
+	@ResponseBody
+	public Course findByCourseName(@PathVariable String courseName) {
+		return service.findByCourseName(courseName);
+	}
+
 	// insert
 	@RequestMapping(value = "/course/create", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
@@ -53,8 +60,8 @@ public class CourseController {
 	}
 
 	// delete
-	@RequestMapping(value = "course/delete/{id}", method = {
-			RequestMethod.GET, RequestMethod.DELETE })
+	@RequestMapping(value = "course/delete/{id}", method = { RequestMethod.GET,
+			RequestMethod.DELETE })
 	@ResponseStatus(HttpStatus.OK)
 	public void deleteCourse(@PathVariable("id") Long id) {
 		Course course = service.readById(id);

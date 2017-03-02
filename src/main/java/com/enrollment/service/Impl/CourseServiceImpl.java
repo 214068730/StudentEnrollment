@@ -48,4 +48,9 @@ public class CourseServiceImpl implements CourseService {
 		repo.delete(entity);
 	}
 
+	@Override
+	public Course findByCourseName(String courseName) {
+		return repo.findByCourseName(courseName);
+	}
+
 }
