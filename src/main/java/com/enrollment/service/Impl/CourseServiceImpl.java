@@ -6,10 +6,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
+import org.springframework.stereotype.Service;
+
 import com.enrollment.domain.Course;
 import com.enrollment.repository.CourseRepository;
 import com.enrollment.service.CourseService;
 
+@Service
 public class CourseServiceImpl implements CourseService {
 
 	@Autowired

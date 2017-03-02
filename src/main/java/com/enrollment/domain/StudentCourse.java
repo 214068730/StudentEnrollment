@@ -28,10 +28,6 @@ public class StudentCourse implements Serializable {
 	@JoinColumn(name = "subjectID")
 	Subject subject;
 
-	@OneToOne
-	@JoinColumn(name = "departmentID")
-	Department department;
-
 	String dateRegistered;
 
 	public StudentCourse() {
@@ -40,15 +36,14 @@ public class StudentCourse implements Serializable {
 		this.dateRegistered = dateFormat.format(date);
 	}
 
-	public StudentCourse(Course course, Student student, Subject subject,
-			Department department) {
+	public StudentCourse(Course course, Student student, Subject subject) {
 		super();
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
 		this.course = course;
 		this.student = student;
 		this.subject = subject;
-		this.department = department;
+
 		this.dateRegistered = dateFormat.format(date);
 	}
 
@@ -74,14 +69,6 @@ public class StudentCourse implements Serializable {
 
 	public void setSubject(Subject subject) {
 		this.subject = subject;
-	}
-
-	public Department getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(Department department) {
-		this.department = department;
 	}
 
 	public String getDateRegistered() {

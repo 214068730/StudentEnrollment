@@ -1,5 +1,6 @@
 package com.enrollment.domain;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -15,7 +16,7 @@ import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tblCourse")
-public class Course {
+public class Course implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

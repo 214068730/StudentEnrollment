@@ -72,7 +72,7 @@ public class TestStudentCourseRepository extends AbstractTestNGSpringContextTest
 		department.setDepartmentName("Database");
 		Department createDepartment = departmentRepo.save(department);
 		Assert.assertNotNull(createDepartment);
-		course.setDepartment(createDepartment);
+		
 		
 		
 //		//save the course

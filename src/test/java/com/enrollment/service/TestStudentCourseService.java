@@ -68,7 +68,7 @@ public class TestStudentCourseService extends AbstractTestNGSpringContextTests{
 		department.setDepartmentName("Management");
 		Department createDepartment = departmentService.create(department);
 		Assert.assertNotNull(createDepartment);
-		course.setDepartment(createDepartment);
+		
 	
 	}
 	
