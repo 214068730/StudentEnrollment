@@ -28,6 +28,12 @@ public class SubjectController {
 	public Subject findById(@PathVariable Long id) {
 		return service.readById(id);
 	}
+	
+	@RequestMapping(value = "subject/name{subjectName}", method = RequestMethod.GET)
+	@ResponseBody
+	public Subject findByName(@PathVariable String subjectName) {
+		return service.findBySubjectSubjectName(subjectName);
+	}
 
 	// insert
 	@RequestMapping(value = "/subject/create", method = RequestMethod.POST)

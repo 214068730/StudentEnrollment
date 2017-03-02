@@ -47,4 +47,11 @@ public class SubjectServiceImpl implements SubjectService {
 		repo.delete(entity);
 	}
 
+	@Override
+	public Subject findBySubjectSubjectName(String subjectName) {
+		return repo.findBySubjectName(subjectName);
+	}
+	
+	
+
 }

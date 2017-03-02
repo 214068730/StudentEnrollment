@@ -20,7 +20,7 @@ public class Course implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private Long courseID;
 
 	private String courseName;
 	private String courseCode;
@@ -43,7 +43,7 @@ public class Course implements Serializable {
 	public Course(Long id, String courseName, String courseCode,
 			Department department, String dateCreated) {
 		super();
-		this.id = id;
+		this.courseID = id;
 		this.courseName = courseName;
 		this.courseCode = courseCode;
 		this.department = department;
@@ -51,11 +51,11 @@ public class Course implements Serializable {
 	}
 
 	public Long getId() {
-		return this.id;
+		return this.courseID;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+		this.courseID = id;
 	}
 
 	public String getCourseName() {
