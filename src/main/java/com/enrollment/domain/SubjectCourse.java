@@ -15,7 +15,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
-@Table(name = "tblStudentCourse")
+@Table(name = "tblSubjectCourse")
 public class SubjectCourse implements Serializable {
 
 	@Id
@@ -27,7 +27,7 @@ public class SubjectCourse implements Serializable {
 	private Course course;
 
 	@ManyToOne
-	@JoinColumn(name = "courseID")
+	@JoinColumn(name = "subjectID")
 	private Subject subject;
 
 	@Transient
