@@ -29,7 +29,7 @@ public class SubjectController {
 		return service.readById(id);
 	}
 	
-	@RequestMapping(value = "subject/name{subjectName}", method = RequestMethod.GET)
+	@RequestMapping(value = "subject/name/{subjectName}", method = RequestMethod.GET)
 	@ResponseBody
 	public Subject findByName(@PathVariable String subjectName) {
 		return service.findBySubjectSubjectName(subjectName);
