@@ -26,6 +26,7 @@ public class ProgressStatus implements Serializable {
 	private String startDate;
 	private String endDate;
 	private boolean active;
+	private boolean completed;
 	@ManyToOne
 	@JoinColumn(name = "studentID")
 	private Student student;
@@ -37,17 +38,16 @@ public class ProgressStatus implements Serializable {
 
 	public ProgressStatus() {
 		super();
-		// TODO Auto-generated constructor stub
+		this.startDate = dateFormat.format(date);
 	}
 
-	public ProgressStatus(Long id, String currentYear, String startDate,
-			String endDate, boolean active, Student student) {
+	public ProgressStatus(String currentYear, boolean active,
+			boolean completed, Student student) {
 		super();
-		this.id = id;
 		this.currentYear = currentYear;
-		this.startDate = dateFormat.format(date).toString();
-		this.endDate = endDate;
+		this.startDate = dateFormat.format(date);
 		this.active = active;
+		this.completed = completed;
 		this.student = student;
 	}
 
@@ -97,6 +97,14 @@ public class ProgressStatus implements Serializable {
 
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+
+	public boolean isCompleted() {
+		return completed;
+	}
+
+	public void setCompleted(boolean completed) {
+		this.completed = completed;
 	}
 
 }

@@ -7,5 +7,5 @@ import com.enrollment.domain.StudentCourse;
 public interface StudentCourseService extends Service<StudentCourse,Long> {
 	
 	public List<StudentCourse> findCourseByStudentNumber(Long studentNumber);
-
+	public List<StudentCourse> findByCourseCourseIDAndStudentStudentID(Long courseID,Long studentID);
 }

@@ -58,8 +58,16 @@ public class StudentCourseController {
 		return service.findCourseByStudentNumber(id);
 	}
 
+	// find All by student id
+	@RequestMapping(value = "/studentCourse/findStudentRecord/{courseID}/{studentID}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<StudentCourse> findByCourseCourseIDAndStudentStudentID(@PathVariable Long courseID,@PathVariable Long studentID){
+		return service.findByCourseCourseIDAndStudentStudentID(courseID,studentID);
+	}
+
 	// delete
-	@RequestMapping(value = "studentCourse/delete/{id}", method ={RequestMethod.GET,RequestMethod.DELETE})
+	@RequestMapping(value = "studentCourse/delete/{id}", method = {
+			RequestMethod.GET, RequestMethod.DELETE })
 	@ResponseStatus(HttpStatus.OK)
 	public void deleteCourse(@PathVariable("id") Long id) {
 		StudentCourse deleteCourse = service.readById(id);
