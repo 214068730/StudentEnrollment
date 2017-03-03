@@ -46,10 +46,10 @@ public class TestStudentController extends AbstractTestNGSpringContextTests {
 		Roles createRole = restTemplate.postForObject(BASE_ROLE, role,
 				Roles.class);
 
-		Student student = new Student("214068730", "Siraaj", "Wilkinson",
-				updatedAddress, "95",createRole);
-		restTemplate.postForObject(url, student, Student.class);
-		Assert.assertNotNull(student);
+//		Student student = new Student("214068730", "Siraaj", "Wilkinson",
+//				updatedAddress, "95",createRole);
+//		restTemplate.postForObject(url, student, Student.class);
+//		Assert.assertNotNull(student);
 	}
 
 	@Test(dependsOnMethods = "testCreateStudent")

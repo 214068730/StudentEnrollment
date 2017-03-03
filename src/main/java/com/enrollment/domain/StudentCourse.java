@@ -2,6 +2,8 @@ package com.enrollment.domain;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -13,7 +15,8 @@ import java.util.Date;
 public class StudentCourse implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(generator="increment")
+	@GenericGenerator(name="increment", strategy = "increment")
 	Long id;
 
 	@OneToOne

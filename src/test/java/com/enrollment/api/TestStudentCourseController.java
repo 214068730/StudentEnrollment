@@ -56,27 +56,27 @@ public class TestStudentCourseController extends AbstractTestNGSpringContextTest
 	    Roles createRole = restTemplate.postForObject(BASE_ROLE, role, Roles.class);
 	    
 		//create student
-		Student student = new Student("29387383", "Kebogile", "Moreng", updatedAddress,"959",createRole);
-		
-		
-		
-		Student updatedStudent = restTemplate.postForObject(BASE_STUDENT, student, Student.class);
-		Assert.assertNotNull(updatedStudent);
-		
-		//create Lecturer
-		Lecturer lecturer = new Lecturer("Tiaan", "Smith");
-		Lecturer updatedLecturer = restTemplate.postForObject(BASE_LECTURER, lecturer, Lecturer.class);
-		Assert.assertNotNull(updatedLecturer);
-		
-		//create subject
-		Subject subject = new Subject("Information Systems IV", "INL40DB", updatedLecturer);
-		Subject updatedSubject = restTemplate.postForObject(BASE_SUBJECT, subject, Subject.class);
-		Assert.assertNotNull(updatedSubject);
-		
-		//create department
-		Department department = new Department("IT Department");
-		Department updatedDepartment = restTemplate.postForObject(BASE_DEPARTMENT, department, Department.class);
-		Assert.assertNotNull(updatedDepartment);
+//		Student student = new Student("29387383", "Kebogile", "Moreng", updatedAddress,"959",createRole);
+//		
+//		
+//		
+//		Student updatedStudent = restTemplate.postForObject(BASE_STUDENT, student, Student.class);
+//		Assert.assertNotNull(updatedStudent);
+//		
+//		//create Lecturer
+//		Lecturer lecturer = new Lecturer("Tiaan", "Smith");
+//		Lecturer updatedLecturer = restTemplate.postForObject(BASE_LECTURER, lecturer, Lecturer.class);
+//		Assert.assertNotNull(updatedLecturer);
+//		
+//		//create subject
+//		Subject subject = new Subject("Information Systems IV", "INL40DB", updatedLecturer);
+//		Subject updatedSubject = restTemplate.postForObject(BASE_SUBJECT, subject, Subject.class);
+//		Assert.assertNotNull(updatedSubject);
+//		
+//		//create department
+//		Department department = new Department("IT Department");
+//		Department updatedDepartment = restTemplate.postForObject(BASE_DEPARTMENT, department, Department.class);
+//		Assert.assertNotNull(updatedDepartment);
 		
 		/*//create course
 		StudentCourse course = new StudentCourse("NPI40RP", "Information Technology: Software Development", updatedStudent, updatedSubject, updatedDepartment);

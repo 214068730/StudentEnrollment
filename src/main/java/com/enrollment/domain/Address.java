@@ -4,12 +4,16 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table(name = "tblAddress")
 public class Address implements Serializable {
 
+	 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(generator="increment")
+	@GenericGenerator(name="increment", strategy = "increment")
 	private Long addressID;
 	
 	private String streetNumber;

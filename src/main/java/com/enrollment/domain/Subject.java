@@ -9,12 +9,15 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table(name = "tblSubject")
 public class Subject implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(generator="increment")
+	@GenericGenerator(name="increment", strategy = "increment")
 	private long subjectID;
 
 	private String subjectName;

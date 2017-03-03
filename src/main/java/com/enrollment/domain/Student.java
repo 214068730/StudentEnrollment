@@ -8,11 +8,14 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table(name = "tblStudent")
 public class Student implements Serializable {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(generator="increment")
+	@GenericGenerator(name="increment", strategy = "increment")
 	private Long studentID;
 
 	@Column(unique = true)
@@ -37,16 +40,20 @@ public class Student implements Serializable {
 
 	public Student() {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		DateFormat studentNumberGenerator = new SimpleDateFormat("yyyyMMdd");
 		Date date = new Date();
 		this.dateCreated = dateFormat.format(date).toString();
+		this.studentNumber =  studentNumberGenerator.format(date).toString();
+
 	}
 
-	public Student(String studentNumber, String studentName,
+	public Student(String studentName,
 			String studentSurname, Address studentAddress,String studentIdNumber,Roles role) {
 		super();
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		DateFormat studentNumberGenerator = new SimpleDateFormat("yyyyMMdd");
 		Date date = new Date();
-		this.studentNumber = studentNumber;
+		this.studentNumber =  studentNumberGenerator.format(date).toString();
 		this.studentName = studentName;
 		this.studentSurname = studentSurname;
 		this.studentAddress = studentAddress;
