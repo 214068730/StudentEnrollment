@@ -40,10 +40,10 @@ public class Student implements Serializable {
 
 	public Student() {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		DateFormat studentNumberGenerator = new SimpleDateFormat("yyyyMMdd");
+		DateFormat studentNumberGenerator = new SimpleDateFormat("yyyyHHddss");
 		Date date = new Date();
 		this.dateCreated = dateFormat.format(date).toString();
-		this.studentNumber =  studentNumberGenerator.format(date).toString();
+		this.studentNumber =  (studentNumberGenerator.format(date).toString()+System.currentTimeMillis()).substring(0, 8);
 
 	}
 
@@ -51,9 +51,9 @@ public class Student implements Serializable {
 			String studentSurname, Address studentAddress,String studentIdNumber,Roles role) {
 		super();
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		DateFormat studentNumberGenerator = new SimpleDateFormat("yyyyMMdd");
+		DateFormat studentNumberGenerator = new SimpleDateFormat("yyyyHHddss");
 		Date date = new Date();
-		this.studentNumber =  studentNumberGenerator.format(date).toString();
+		this.studentNumber =  (studentNumberGenerator.format(date).toString()+System.currentTimeMillis()).substring(0, 8);
 		this.studentName = studentName;
 		this.studentSurname = studentSurname;
 		this.studentAddress = studentAddress;
