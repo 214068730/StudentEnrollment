@@ -3,10 +3,12 @@ package com.enrollment.businessLogic;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.enrollment.domain.Student;
 import com.enrollment.repository.StudentRepository;
 
+@Repository
 public class StudentLogic {
 
 	@Autowired
@@ -30,7 +32,6 @@ public class StudentLogic {
 		{
 			return repo.save(entity);
 		}
-
 	}
 	
 	

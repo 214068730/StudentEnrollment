@@ -64,5 +64,21 @@ public class Roles implements Serializable {
 	public String getDateCreate() {
 		return this.dateCreated;
 	}
+	
+	@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Roles roles = (Roles) o;
+
+        return Id == roles.Id;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (Id ^ (Id >>> 32));
+    }
 
 }

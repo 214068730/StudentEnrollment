@@ -75,4 +75,20 @@ public class Address implements Serializable {
 	public void setAreaCode(String areaCode) {
 		this.areaCode = areaCode;
 	}
+	
+	@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Address address = (Address) o;
+
+        return addressID == address.addressID;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (addressID ^ (addressID >>> 32));
+    }
 }

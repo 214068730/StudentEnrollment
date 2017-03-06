@@ -18,10 +18,10 @@ public class Student implements Serializable {
 	@GenericGenerator(name="increment", strategy = "increment")
 	private Long studentID;
 
-	@Column(unique = true)
+	//@Column(unique = true)
 	private String studentNumber;
 	
-	@Column(unique = true)
+	//@Column(unique = true)
 	private String studentIdNumber;
 
 	private String studentName;
@@ -122,5 +122,21 @@ public class Student implements Serializable {
 	public void setRole(Roles role) {
 		this.role = role;
 	}
+	
+	@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Student student = (Student) o;
+
+        return studentID == student.studentID;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (studentID ^ (studentID >>> 32));
+    }
 	
 }

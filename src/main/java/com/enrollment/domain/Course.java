@@ -88,5 +88,21 @@ public class Course implements Serializable {
 	public void setDateCreated(String dateCreated) {
 		this.dateCreated = dateCreated;
 	}
+	
+	@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Course course = (Course) o;
+
+        return courseID == course.courseID;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (courseID ^ (courseID >>> 32));
+    }
 
 }

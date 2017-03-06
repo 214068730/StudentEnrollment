@@ -109,5 +109,21 @@ public class ProgressStatus implements Serializable {
 	public void setCompleted(boolean completed) {
 		this.completed = completed;
 	}
+	
+	@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ProgressStatus progressStatus = (ProgressStatus) o;
+
+        return id == progressStatus.id;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (id ^ (id >>> 32));
+    }
 
 }

@@ -6,7 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.enrollment.businessLogic.StudentLogic;
+import com.enrollment.domain.Address;
 import com.enrollment.domain.Student;
+import com.enrollment.repository.AddressRepository;
 import com.enrollment.repository.StudentRepository;
 import com.enrollment.service.StudentService;
 
@@ -15,10 +18,31 @@ public class StudentServiceImpl implements StudentService {
 
 	@Autowired
 	private StudentRepository repo;
+	@Autowired
+	private AddressRepository addressRepo;
+
 
 	@Override
 	public Student create(Student entity) {
-		return repo.save(entity);
+		Iterable<Student> students = repo.findAll();
+		boolean idExist = false;
+
+		if (entity.getStudentID() == null) {
+			for (Student stud : students) {
+				if (entity.getStudentIdNumber().equals(stud.getStudentIdNumber())) {
+					idExist = true;
+					break;
+				}
+			}
+		}
+		if (idExist == true)
+			return null;
+		else {
+			
+			Address address = addressRepo.save(entity.getStudentAddress());
+			entity.setStudentAddress(address);
+			return repo.save(entity);
+		}
 	}
 
 	@Override
@@ -40,7 +64,24 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public Student update(Student entity) {
-		return repo.save(entity);
+		Iterable<Student> students = repo.findAll();
+		boolean idExist = false;
+
+//		if (entity.getStudentID() != null) {
+//			for (Student stud : students) {
+//				if (entity.getStudentIdNumber().equals(stud.getStudentIdNumber())) {
+//					idExist = true;
+//					break;
+//				}
+//			}
+//		}
+//		if (idExist == true)
+//			return null;
+//		else {
+//			
+			addressRepo.save(entity.getStudentAddress()); //update address 
+			return repo.save(entity);
+//		}
 	}
 
 	@Override
@@ -50,8 +91,8 @@ public class StudentServiceImpl implements StudentService {
 
 	public Student findByStudentNumberAndStudentName(String studentNumber,
 			String studentName) {
-		Student student = repo.findByStudentNumberAndStudentNameIgnoringCase(studentNumber,
-				studentName);
+		Student student = repo.findByStudentNumberAndStudentNameIgnoringCase(
+				studentNumber, studentName);
 		return student;
 	}
 

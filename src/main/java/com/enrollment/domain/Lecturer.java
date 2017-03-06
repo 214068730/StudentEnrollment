@@ -64,5 +64,21 @@ public class Lecturer implements Serializable {
 	public String getDateAdded() {
 		return this.dateAdded;
 	}
+	
+	@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Lecturer lecturer = (Lecturer) o;
+
+        return id == lecturer.id;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (id ^ (id >>> 32));
+    }
 
 }
