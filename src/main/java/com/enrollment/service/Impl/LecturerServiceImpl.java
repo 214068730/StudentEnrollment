@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.enrollment.domain.Lecturer;
 import com.enrollment.repository.LecturerRepository;
 import com.enrollment.service.LecturerService;
@@ -43,6 +44,11 @@ public class LecturerServiceImpl implements LecturerService {
 	@Override
 	public void delete(Lecturer entity) {
 		repo.delete(entity);
+	}
+
+	@Override
+	public Lecturer findByLecturerNameAndLecturerSurname(String lecturerName,String LecturerSurname) {
+		return repo.findByLecturerNameIgnoringCaseAndLecturerSurnameIgnoringCase(lecturerName, LecturerSurname);
 	}
 
 }

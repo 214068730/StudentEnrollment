@@ -18,7 +18,18 @@ public class SubjectServiceImpl implements SubjectService {
 
 	@Override
 	public Subject create(Subject entity) {
-		return repo.save(entity);
+		boolean flag = false;
+		Iterable<Subject>subjects = repo.findAll();
+		for(Subject sub : subjects){
+			if(entity.getSubjectCode().equals(sub.getSubjectCode())){
+				flag = true;
+				break;
+			}
+		}
+		if(flag == true)
+			return null;
+		else
+			return repo.save(entity);
 	}
 
 	@Override
@@ -30,7 +41,6 @@ public class SubjectServiceImpl implements SubjectService {
 	public List<Subject> readAll() {
 		List<Subject> subjectList = new ArrayList<Subject>();
 		Iterable<Subject> subjects = repo.findAll();
-
 		for (Subject s : subjects) {
 			subjectList.add(s);
 		}
@@ -39,7 +49,18 @@ public class SubjectServiceImpl implements SubjectService {
 
 	@Override
 	public Subject update(Subject entity) {
-		return repo.save(entity);
+		boolean flag = false;
+		Iterable<Subject>subjects = repo.findAll();
+		for(Subject sub : subjects){
+			if(entity.getSubjectCode().equals(sub.getSubjectCode())){
+				flag = true;
+				break;
+			}
+		}
+		if(flag == true)
+			return null;
+		else
+			return repo.save(entity);
 	}
 
 	@Override

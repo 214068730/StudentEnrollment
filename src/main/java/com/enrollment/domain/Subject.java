@@ -11,6 +11,8 @@ import javax.persistence.*;
 
 import org.hibernate.annotations.GenericGenerator;
 
+
+
 @Entity
 @Table(name = "tblSubject")
 public class Subject implements Serializable {
@@ -40,7 +42,8 @@ public class Subject implements Serializable {
 		this.dateAdded = dateFormat.format(date);
 	}
 
-	public Subject(String subjectName, String subjectCode, Lecturer lecturer) {
+	public Subject(String subjectName, String subjectCode, double price,
+			int yearLevel, Lecturer lecturer) {
 		super();
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
@@ -48,6 +51,9 @@ public class Subject implements Serializable {
 		this.subjectCode = subjectCode;
 		this.lecturer = lecturer;
 		this.dateAdded = dateFormat.format(date);
+		this.price = price;
+		this.yearLevel = yearLevel;
+		
 	}
 
 	public long getSubjectID() {

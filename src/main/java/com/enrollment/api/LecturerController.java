@@ -29,6 +29,13 @@ public class LecturerController {
 	public Lecturer findById(@PathVariable Long id) {
 		return service.readById(id);
 	}
+	
+	//find by name and surname
+	@RequestMapping(value = "lecturer/findByNameAndSurname/{name}/{surname}", method = RequestMethod.GET)
+	@ResponseBody
+	public Lecturer findByNameAndSurname(@PathVariable String name,@PathVariable String surname) {
+		return service.findByLecturerNameAndLecturerSurname(name, surname);
+	}
 
 	// insert
 	@RequestMapping(value = "/lecturer/create", method = RequestMethod.POST)

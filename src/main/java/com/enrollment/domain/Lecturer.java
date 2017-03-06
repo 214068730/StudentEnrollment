@@ -18,8 +18,8 @@ public class Lecturer implements Serializable {
 	@GeneratedValue(generator="increment")
 	@GenericGenerator(name="increment", strategy = "increment")
 	Long id;
-	String name;
-	String surname;
+	String lecturerName;
+	String lecturerSurname;
 	String dateAdded;
 
 	public Lecturer() {
@@ -32,8 +32,8 @@ public class Lecturer implements Serializable {
 		super();
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
-		this.name = name;
-		this.surname = surname;
+		this.lecturerName = name;
+		this.lecturerSurname = surname;
 		this.dateAdded = dateFormat.format(date);
 	}
 
@@ -46,19 +46,19 @@ public class Lecturer implements Serializable {
 	}
 
 	public String getName() {
-		return name;
+		return lecturerName;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.lecturerName = name;
 	}
 
 	public String getSurname() {
-		return surname;
+		return lecturerSurname;
 	}
 
 	public void setSurname(String surname) {
-		this.surname = surname;
+		this.lecturerSurname = surname;
 	}
 
 	public String getDateAdded() {

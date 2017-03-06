@@ -17,5 +17,6 @@ import com.enrollment.domain.Lecturer;
 
 @Repository
 public interface LecturerRepository extends CrudRepository<Lecturer,Long> {
+	public Lecturer findByLecturerNameIgnoringCaseAndLecturerSurnameIgnoringCase(String lecturerName,String LecturerSurname);
 
 }
