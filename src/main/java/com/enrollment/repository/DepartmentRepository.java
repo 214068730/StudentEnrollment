@@ -7,5 +7,6 @@ import com.enrollment.domain.Department;
 
 @Repository
 public interface DepartmentRepository extends CrudRepository<Department,Long>  {
+	public Department findByDepartmentName(String departmentName);
 
 }

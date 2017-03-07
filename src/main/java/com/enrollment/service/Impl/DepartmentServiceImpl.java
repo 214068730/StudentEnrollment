@@ -18,12 +18,27 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 	@Override
 	public Department create(Department entity) {
-		return repo.save(entity);
+		boolean exist = false;
+		Iterable<Department> departments = repo.findAll();
+		for (Department department : departments) {
+			if (entity.getDepartmentName().equals(
+					department.getDepartmentName())) {
+				exist = true;
+				break;
+			}
+		}
+		if (exist == true)
+			return null;
+		else
+			return repo.save(entity);
 	}
 
 	@Override
 	public Department readById(Long id) {
-		return repo.findOne(id);
+		if (id == null)
+			return null;
+		else
+			return repo.findOne(id);
 	}
 
 	@Override
@@ -38,12 +53,37 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 	@Override
 	public Department update(Department entity) {
-		return repo.save(entity);
+		if (entity.getDepartmentID() == null)
+			return null;
+		else {
+			boolean exist = false;
+			Iterable<Department> departments = repo.findAll();
+			for (Department department : departments) {
+				if (entity.getDepartmentName().equals(
+						department.getDepartmentName())) {
+					exist = true;
+					break;
+				}
+			}
+			if (exist == true)
+				return null;
+			else
+				return repo.save(entity);
+		}
 	}
 
 	@Override
 	public void delete(Department entity) {
-		repo.delete(entity);
+		if (entity != null)
+			repo.delete(entity);
+	}
+
+	@Override
+	public Department findByDepartmentName(String departmentName) {
+		if (departmentName == null)
+			return null;
+		else
+			return repo.findByDepartmentName(departmentName);
 	}
 
 }

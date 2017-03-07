@@ -28,6 +28,13 @@ public class DepartmentController {
 		return service.readById(id);
 	}
 
+	// find by id
+	@RequestMapping(value = "department/name/{departmentName}", method = RequestMethod.GET)
+	@ResponseBody
+	public Department findByName(@PathVariable String departmentName) {
+		return service.findByDepartmentName(departmentName);
+	}
+
 	// insert
 	@RequestMapping(value = "/department/create", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
@@ -51,7 +58,8 @@ public class DepartmentController {
 	}
 
 	// delete
-	@RequestMapping(value = "department/delete/{id}", method = {RequestMethod.GET,RequestMethod.DELETE})
+	@RequestMapping(value = "department/delete/{id}", method = {
+			RequestMethod.GET, RequestMethod.DELETE })
 	@ResponseStatus(HttpStatus.OK)
 	public void deleteDepartment(@PathVariable("id") Long id) {
 		Department deleteDepartment = service.readById(id);

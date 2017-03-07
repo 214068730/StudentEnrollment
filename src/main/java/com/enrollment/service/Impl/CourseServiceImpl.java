@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-
 import org.springframework.stereotype.Service;
 
 import com.enrollment.domain.Course;
@@ -20,12 +19,26 @@ public class CourseServiceImpl implements CourseService {
 
 	@Override
 	public Course create(Course entity) {
-		return repo.save(entity);
+		boolean exist = false;
+		Iterable<Course> courses = repo.findAll();
+		for (Course course : courses) {
+			if (entity.getCourseCode().equals(course.getCourseCode())) {
+				exist = true;
+				break;
+			}
+		}
+		if (exist == true)
+			return null;
+		else
+			return repo.save(entity);
 	}
 
 	@Override
 	public Course readById(Long id) {
-		return repo.findOne(id);
+		if (id == null)
+			return null;
+		else
+			return repo.findOne(id);
 	}
 
 	@Override
@@ -40,24 +53,44 @@ public class CourseServiceImpl implements CourseService {
 
 	@Override
 	public Course update(Course entity) {
-		if(entity == null)
+		if (entity.getId() == null)
 			return null;
-		else
-			return repo.save(entity);
+		else {
+			boolean exist = false;
+			Iterable<Course> courses = repo.findAll();
+			for (Course course : courses) {
+				if (entity.getCourseCode().equals(course.getCourseCode())) {
+					exist = true;
+					break;
+				}
+			}
+			if (exist == true)
+				return null;
+			else
+				return repo.save(entity);
+
+		}
 	}
 
 	@Override
 	public void delete(Course entity) {
-		repo.delete(entity);
+		if (entity != null)
+			repo.delete(entity);
 	}
 
 	@Override
 	public Course findByCourseName(String courseName) {
-		return repo.findByCourseNameIgnoringCase(courseName);
+		if (courseName == null)
+			return null;
+		else
+			return repo.findByCourseNameIgnoringCase(courseName);
 	}
 
 	@Override
 	public Course findByCourseCode(String code) {
-		return repo.findByCourseCodeIgnoringCase(code);
+		if (code == null)
+			return null;
+		else
+			return repo.findByCourseCodeIgnoringCase(code);
 	}
 }
