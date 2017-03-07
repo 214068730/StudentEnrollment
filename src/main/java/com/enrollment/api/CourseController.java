@@ -30,11 +30,18 @@ public class CourseController {
 		return service.readById(id);
 	}
 
-	// find by id
+	// find by name
 	@RequestMapping(value = "course/name/{courseName}", method = RequestMethod.GET)
 	@ResponseBody
 	public Course findByCourseName(@PathVariable String courseName) {
 		return service.findByCourseName(courseName);
+	}
+
+	// find by code
+	@RequestMapping(value = "course/code/{courseCode}", method = RequestMethod.GET)
+	@ResponseBody
+	public Course findByCourseCode(@PathVariable String courseCode) {
+		return service.findByCourseCode(courseCode);
 	}
 
 	// insert

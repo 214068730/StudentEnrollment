@@ -34,6 +34,12 @@ public class SubjectController {
 	public Subject findByName(@PathVariable String subjectName) {
 		return service.findBySubjectSubjectName(subjectName);
 	}
+	
+	@RequestMapping(value = "subject/code/{subjectCode}", method = RequestMethod.GET)
+	@ResponseBody
+	public Subject findBySubjectCode(@PathVariable String subjectCode) {
+		return service.findBySubjectCode(subjectCode);
+	}
 
 	// insert
 	@RequestMapping(value = "/subject/create", method = RequestMethod.POST)

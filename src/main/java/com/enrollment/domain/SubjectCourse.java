@@ -21,8 +21,8 @@ import org.hibernate.annotations.GenericGenerator;
 public class SubjectCourse implements Serializable {
 
 	@Id
-	@GeneratedValue(generator="increment")
-	@GenericGenerator(name="increment", strategy = "increment")
+	@GeneratedValue(generator = "increment")
+	@GenericGenerator(name = "increment", strategy = "increment")
 	private Long id;
 
 	@ManyToOne
@@ -45,8 +45,7 @@ public class SubjectCourse implements Serializable {
 		this.dateCreated = dateFormat.format(date);
 	}
 
-	public SubjectCourse(Course course, Subject subject,
-			String dateCreated) {
+	public SubjectCourse(Course course, Subject subject) {
 		super();
 		this.course = course;
 		this.subject = subject;
@@ -80,23 +79,7 @@ public class SubjectCourse implements Serializable {
 	public String getDateCreated() {
 		return dateCreated;
 	}
-	
-	
-	@Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        SubjectCourse subjectCourse = (SubjectCourse) o;
-
-        return id == subjectCourse.id;
-
-    }
-
-    @Override
-    public int hashCode() {
-        return (int) (id ^ (id >>> 32));
-    }
 	
 
 }

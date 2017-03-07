@@ -5,8 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.enrollment.businessLogic.StudentLogic;
 import com.enrollment.domain.Address;
 import com.enrollment.domain.Student;
 import com.enrollment.repository.AddressRepository;
@@ -67,21 +65,21 @@ public class StudentServiceImpl implements StudentService {
 		Iterable<Student> students = repo.findAll();
 		boolean idExist = false;
 
-//		if (entity.getStudentID() != null) {
-//			for (Student stud : students) {
-//				if (entity.getStudentIdNumber().equals(stud.getStudentIdNumber())) {
-//					idExist = true;
-//					break;
-//				}
-//			}
-//		}
-//		if (idExist == true)
-//			return null;
-//		else {
+		if (entity.getStudentID() != null) {
+			for (Student stud : students) {
+				if (entity.getStudentIdNumber().equals(stud.getStudentIdNumber())) {
+					idExist = true;
+					break;
+				}
+			}
+		}
+		if (idExist == true)
+			return null;
+		else {
 //			
 			addressRepo.save(entity.getStudentAddress()); //update address 
 			return repo.save(entity);
-//		}
+		}
 	}
 
 	@Override

@@ -8,5 +8,6 @@ import com.enrollment.domain.Subject;
 @Repository
 public interface SubjectRepository extends CrudRepository<Subject, Long> {
 	public Subject findBySubjectName(String subjectName);
+	public Subject findBySubjectCode(String subjectCode);
 
 }

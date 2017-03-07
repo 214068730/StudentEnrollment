@@ -7,6 +7,7 @@ import com.enrollment.domain.Course;
 
 @Repository
 public interface CourseRepository extends CrudRepository<Course, Long> {
-	public Course findByCourseName(String courseName);
+	public Course findByCourseCodeIgnoringCase(String code);
+	public Course findByCourseNameIgnoringCase(String courseName);
 
 }

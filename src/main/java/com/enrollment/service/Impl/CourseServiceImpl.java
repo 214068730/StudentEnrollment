@@ -40,7 +40,10 @@ public class CourseServiceImpl implements CourseService {
 
 	@Override
 	public Course update(Course entity) {
-		return repo.save(entity);
+		if(entity == null)
+			return null;
+		else
+			return repo.save(entity);
 	}
 
 	@Override
@@ -50,7 +53,11 @@ public class CourseServiceImpl implements CourseService {
 
 	@Override
 	public Course findByCourseName(String courseName) {
-		return repo.findByCourseName(courseName);
+		return repo.findByCourseNameIgnoringCase(courseName);
 	}
 
+	@Override
+	public Course findByCourseCode(String code) {
+		return repo.findByCourseCodeIgnoringCase(code);
+	}
 }

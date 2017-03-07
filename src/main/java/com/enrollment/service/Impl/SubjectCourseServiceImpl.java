@@ -19,12 +19,30 @@ public class SubjectCourseServiceImpl implements SubjectCourseService {
 
 	@Override
 	public SubjectCourse create(SubjectCourse entity) {
-		return repo.save(entity);
+		Iterable<SubjectCourse> subjectCourses = repo.findAll();
+		boolean exist = false;
+		for (SubjectCourse subCourse : subjectCourses) {
+			if (entity.getCourse().getId() == subCourse.getCourse().getId()
+					&& entity.getSubject().getSubjectID() == subCourse
+							.getSubject().getSubjectID()) {
+				exist = true;
+				break;
+			}
+
+		}
+		if (exist == true)
+			return null;
+		else
+			return repo.save(entity);
 	}
 
 	@Override
 	public SubjectCourse readById(Long id) {
-		return repo.findOne(id);
+		if (id == null)
+			return null;
+		else
+
+			return repo.findOne(id);
 	}
 
 	@Override
@@ -39,13 +57,16 @@ public class SubjectCourseServiceImpl implements SubjectCourseService {
 
 	@Override
 	public SubjectCourse update(SubjectCourse entity) {
-		return repo.save(entity);
+		if (entity == null)
+			return null;
+		else
+			return repo.save(entity);
 	}
 
 	@Override
 	public void delete(SubjectCourse entity) {
-		repo.delete(entity);
-
+		if (entity != null)
+			repo.delete(entity);
 	}
 
 }
