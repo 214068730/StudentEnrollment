@@ -56,5 +56,7 @@ public class ProgressStatusImpl implements ProgressStatusService {
 	public ProgressStatus findByActiveAndStudentStudentID(int activated,Long studentID) {
 		return repo.findByActiveAndStudentStudentID(activated, studentID);	
 	}
+	
+	
 
 }
