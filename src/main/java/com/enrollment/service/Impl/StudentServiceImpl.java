@@ -19,7 +19,6 @@ public class StudentServiceImpl implements StudentService {
 	@Autowired
 	private AddressRepository addressRepo;
 
-
 	@Override
 	public Student create(Student entity) {
 		Iterable<Student> students = repo.findAll();
@@ -36,7 +35,7 @@ public class StudentServiceImpl implements StudentService {
 		if (idExist == true)
 			return null;
 		else {
-			
+
 			Address address = addressRepo.save(entity.getStudentAddress());
 			entity.setStudentAddress(address);
 			return repo.save(entity);
@@ -67,17 +66,19 @@ public class StudentServiceImpl implements StudentService {
 
 		if (entity.getStudentID() != null) {
 			for (Student stud : students) {
-				if (entity.getStudentIdNumber().equals(stud.getStudentIdNumber())) {
-					idExist = true;
-					break;
+				if (entity.getStudentID() != stud.getStudentID()) {
+					if (entity.getStudentIdNumber().equals(stud.getStudentIdNumber())) {
+						idExist = true;
+						break;
+					}
 				}
 			}
 		}
 		if (idExist == true)
 			return null;
 		else {
-//			
-			addressRepo.save(entity.getStudentAddress()); //update address 
+			//
+			addressRepo.save(entity.getStudentAddress()); // update address
 			return repo.save(entity);
 		}
 	}

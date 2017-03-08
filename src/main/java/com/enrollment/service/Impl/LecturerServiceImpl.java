@@ -23,7 +23,10 @@ public class LecturerServiceImpl implements LecturerService {
 
 	@Override
 	public Lecturer readById(Long id) {
-		return repo.findOne(id);
+		if (id == null)
+			return null;
+		else
+			return repo.findOne(id);
 	}
 
 	@Override
@@ -38,17 +41,27 @@ public class LecturerServiceImpl implements LecturerService {
 
 	@Override
 	public Lecturer update(Lecturer entity) {
-		return repo.save(entity);
+		if (entity.getId() == null)
+			return null;
+		else
+			return repo.save(entity);
 	}
 
 	@Override
 	public void delete(Lecturer entity) {
-		repo.delete(entity);
+		if (entity.getId() != null)
+			repo.delete(entity);
 	}
 
 	@Override
-	public Lecturer findByLecturerNameAndLecturerSurname(String lecturerName,String LecturerSurname) {
-		return repo.findByLecturerNameIgnoringCaseAndLecturerSurnameIgnoringCase(lecturerName, LecturerSurname);
+	public Lecturer findByLecturerNameAndLecturerSurname(String lecturerName,
+			String lecturerSurname) {
+		if (lecturerName == null && lecturerSurname == null)
+			return null;
+		else
+			return repo
+					.findByLecturerNameIgnoringCaseAndLecturerSurnameIgnoringCase(
+							lecturerName, lecturerSurname);
 	}
 
 }

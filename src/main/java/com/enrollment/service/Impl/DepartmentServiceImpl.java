@@ -59,10 +59,11 @@ public class DepartmentServiceImpl implements DepartmentService {
 			boolean exist = false;
 			Iterable<Department> departments = repo.findAll();
 			for (Department department : departments) {
-				if (entity.getDepartmentName().equals(
-						department.getDepartmentName())) {
-					exist = true;
-					break;
+				if (entity.getDepartmentID() != department.getDepartmentID()) {
+					if (entity.getDepartmentName().equals(department.getDepartmentName())) {
+						exist = true;
+						break;
+					}
 				}
 			}
 			if (exist == true)

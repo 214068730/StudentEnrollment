@@ -16,7 +16,7 @@ public class AddressServiceImpl implements AddressService {
 
 	@Autowired
 	AddressRepository repo;
-	
+
 	@Override
 	public Address create(Address entity) {
 		return repo.save(entity);
@@ -44,8 +44,9 @@ public class AddressServiceImpl implements AddressService {
 
 	@Override
 	public void delete(Address entity) {
-		repo.delete(entity);
-		
+		if (entity != null)
+			repo.delete(entity);
+
 	}
 
 }

@@ -59,9 +59,11 @@ public class CourseServiceImpl implements CourseService {
 			boolean exist = false;
 			Iterable<Course> courses = repo.findAll();
 			for (Course course : courses) {
-				if (entity.getCourseCode().equals(course.getCourseCode())) {
-					exist = true;
-					break;
+				if (entity.getId() != course.getId()) {
+					if (entity.getCourseCode().equals(course.getCourseCode())) {
+						exist = true;
+						break;
+					}
 				}
 			}
 			if (exist == true)

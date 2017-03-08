@@ -19,14 +19,14 @@ public class SubjectServiceImpl implements SubjectService {
 	@Override
 	public Subject create(Subject entity) {
 		boolean flag = false;
-		Iterable<Subject>subjects = repo.findAll();
-		for(Subject sub : subjects){
-			if(entity.getSubjectCode().equals(sub.getSubjectCode())){
+		Iterable<Subject> subjects = repo.findAll();
+		for (Subject sub : subjects) {
+			if (entity.getSubjectCode().equals(sub.getSubjectCode())) {
 				flag = true;
 				break;
 			}
 		}
-		if(flag == true)
+		if (flag == true)
 			return null;
 		else
 			return repo.save(entity);
@@ -50,14 +50,16 @@ public class SubjectServiceImpl implements SubjectService {
 	@Override
 	public Subject update(Subject entity) {
 		boolean flag = false;
-		Iterable<Subject>subjects = repo.findAll();
-		for(Subject sub : subjects){
-			if(entity.getSubjectCode().equals(sub.getSubjectCode())){
-				flag = true;
-				break;
+		Iterable<Subject> subjects = repo.findAll();
+		for (Subject sub : subjects) {
+			if (entity.getSubjectID() != sub.getSubjectID()) {
+				if (entity.getSubjectCode().equals(sub.getSubjectCode())) {
+					flag = true;
+					break;
+				}
 			}
 		}
-		if(flag == true)
+		if (flag == true)
 			return null;
 		else
 			return repo.save(entity);
@@ -65,13 +67,13 @@ public class SubjectServiceImpl implements SubjectService {
 
 	@Override
 	public void delete(Subject entity) {
-		if(entity != null)
+		if (entity != null)
 			repo.delete(entity);
 	}
 
 	@Override
 	public Subject findBySubjectSubjectName(String subjectName) {
-		if(subjectName.equals(null))
+		if (subjectName.equals(null))
 			return null;
 		else
 			return repo.findBySubjectName(subjectName);
@@ -79,7 +81,7 @@ public class SubjectServiceImpl implements SubjectService {
 
 	@Override
 	public Subject findBySubjectCode(String subjectCode) {
-		if(subjectCode.equals(null))
+		if (subjectCode.equals(null))
 			return null;
 		else
 			return repo.findBySubjectCode(subjectCode);
