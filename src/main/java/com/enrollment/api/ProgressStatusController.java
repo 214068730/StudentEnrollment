@@ -30,11 +30,11 @@ public class ProgressStatusController {
 		return service.readById(id);
 	}
 
-	// find by id
-	@RequestMapping(value = "progress/grade/{studentID}/{active}", method = RequestMethod.GET)
+	// find by grade
+	@RequestMapping(value = "/progress/grade/{studentID}/{active}", method = RequestMethod.GET)
 	@ResponseBody
-	public ProgressStatus findByGradeStatus(@PathVariable Long studentID, @PathVariable boolean active) {
-		return service.findByStudentStudentIDAndActive(studentID, active);
+	public ProgressStatus findByGradeStatus(@PathVariable Long studentID, @PathVariable int active) {
+		return service.findByActiveAndStudentStudentID(active, studentID);
 	}
 
 	// insert

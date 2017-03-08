@@ -6,6 +6,6 @@ import com.enrollment.domain.ProgressStatus;
 
 public interface ProgressStatusRepository  extends CrudRepository<ProgressStatus,Long>{
 	
-	public ProgressStatus findByStudentStudentIDAndActive(Long studentID,boolean active);
+	public ProgressStatus findByActiveAndStudentStudentID(int active,Long studentID);
 
 }

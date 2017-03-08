@@ -30,6 +30,13 @@ public class SubjectCourseController {
 		return service.readById(id);
 	}
 
+	// find by course code
+	@RequestMapping(value = "subjectCourse/courseCode/{id}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<SubjectCourse> findByCourseCode(@PathVariable Long id) {
+		return service.findByCourseCourseID(id);
+	}
+
 	// insert
 	@RequestMapping(value = "/subjectCourse/create", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)

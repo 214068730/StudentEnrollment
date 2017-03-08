@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.enrollment.domain.Address;
+import com.enrollment.domain.StudentCourse;
 import com.enrollment.domain.SubjectCourse;
 import com.enrollment.repository.SubjectCourseRepository;
 import com.enrollment.service.SubjectCourseService;
@@ -68,5 +69,22 @@ public class SubjectCourseServiceImpl implements SubjectCourseService {
 		if (entity != null)
 			repo.delete(entity);
 	}
+
+	@Override
+	public List<SubjectCourse> findByCourseCourseID(Long courseID) {
+		if(courseID == null)
+			return null;
+		else
+		{
+			List<SubjectCourse> subjectCourseList = new ArrayList<SubjectCourse>();
+			Iterable<SubjectCourse> subjectCourses = repo.findByCourseCourseID(courseID);
+			for (SubjectCourse a : subjectCourses) {
+				subjectCourseList.add(a);
+			}
+			return subjectCourseList;
+		}
+	}
+
+	
 
 }

@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 
 import com.enrollment.domain.Department;
 import com.enrollment.domain.ProgressStatus;
+import com.enrollment.domain.Student;
 import com.enrollment.repository.ProgressStatusRepository;
+import com.enrollment.repository.StudentRepository;
 import com.enrollment.service.ProgressStatusService;
 
 @Service
@@ -16,6 +18,9 @@ public class ProgressStatusImpl implements ProgressStatusService {
 
 	@Autowired
 	ProgressStatusRepository repo;
+	@Autowired
+	StudentRepository studentRepo;
+	private ProgressStatus status;
 
 	@Override
 	public ProgressStatus create(ProgressStatus entity) {
@@ -48,9 +53,8 @@ public class ProgressStatusImpl implements ProgressStatusService {
 	}
 
 	@Override
-	public ProgressStatus findByStudentStudentIDAndActive(Long studentID,
-			boolean active) {
-		return repo.findByStudentStudentIDAndActive(studentID, active);
+	public ProgressStatus findByActiveAndStudentStudentID(int activated,Long studentID) {
+		return repo.findByActiveAndStudentStudentID(activated, studentID);	
 	}
 
 }
