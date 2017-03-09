@@ -53,10 +53,39 @@ public class ProgressStatusImpl implements ProgressStatusService {
 	}
 
 	@Override
-	public ProgressStatus findByActiveAndStudentStudentID(int activated,Long studentID) {
-		return repo.findByActiveAndStudentStudentID(activated, studentID);	
+	public ProgressStatus findByActiveAndStudentStudentID(int activate,Long studentID) {
+		int active = 1;
+		int completed = 0;
+		if (studentID == null)
+			return null;
+		else {
+			ProgressStatus activeStatus = repo.findByActiveAndStudentStudentID(activate, studentID);
+			Student student = studentRepo.findOne(studentID);
+			if(activeStatus == null){
+				ProgressStatus deActiveStatus = repo.findByActiveAndStudentStudentID(0, studentID); // finding any record that is not active
+				if(deActiveStatus == null)
+					return repo.save(new ProgressStatus("1",active,completed,student));
+				else
+				{
+					deActiveStatus.setActive(1);
+					return repo.save(deActiveStatus);
+				}	
+			}
+			else if(activeStatus.isCompleted() == 0)
+				return null;
+			else
+			{
+				int oldGrade = Integer.parseInt(status.getCurrentYear());
+				int nextGrade = oldGrade + 1;
+				activeStatus.setActive(0);
+				repo.save(activeStatus);
+				
+				//return new grade
+				ProgressStatus newGrade = new ProgressStatus(nextGrade + "",active, completed, student);
+				return newGrade;
+			}
+				
+		}
 	}
-	
-	
 
 }

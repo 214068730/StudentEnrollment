@@ -30,6 +30,7 @@ public class StudentCourse implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "subjectID")
 	Subject subject;
+	
 
 	String dateRegistered;
 
@@ -94,7 +95,6 @@ public class StudentCourse implements Serializable {
         StudentCourse studentCourse = (StudentCourse) o;
 
         return id == studentCourse.id;
-
     }
 
     @Override
