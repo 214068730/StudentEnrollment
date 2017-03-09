@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 
 import com.enrollment.domain.StudentCourse;
+import com.enrollment.domain.Subject;
 import com.enrollment.service.Impl.StudentCourseServiceImpl;
 
 @RestController
@@ -27,6 +28,12 @@ public class StudentCourseController {
 	@ResponseBody
 	public StudentCourse findById(@PathVariable Long id) {
 		return service.readById(id);
+	}
+	
+	@RequestMapping(value = "studentCourse/register/{studentID}/{courseID}/create", method = RequestMethod.GET)
+	@ResponseBody
+	public boolean registerStudent(@PathVariable Long studentID,@PathVariable Long courseID,@RequestBody List<Subject> subjects) {
+		return service.registerStudent(subjects, studentID, courseID);
 	}
 
 	// insert

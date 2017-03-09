@@ -87,19 +87,4 @@ public class StudentCourse implements Serializable {
 		this.course = course;
 	}
 	
-	@Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        StudentCourse studentCourse = (StudentCourse) o;
-
-        return id == studentCourse.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return (int) (id ^ (id >>> 32));
-    }
-
 }

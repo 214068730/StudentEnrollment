@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -24,7 +25,6 @@ public class ProgressStatus implements Serializable {
 	@GeneratedValue(generator="increment")
 	@GenericGenerator(name="increment", strategy = "increment")
 	private Long id;
-
 	private String currentYear;
 	private String startDate;
 	private String endDate;
@@ -33,7 +33,9 @@ public class ProgressStatus implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "studentID")
 	private Student student;
-
+	@OneToOne
+	@JoinColumn(name = "courseID")
+	private Course course;
 	@Transient
 	private DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 	@Transient
@@ -44,15 +46,17 @@ public class ProgressStatus implements Serializable {
 		this.startDate = dateFormat.format(date);
 	}
 
-	public ProgressStatus(String currentYear, int active,
-			int completed, Student student) {
+	
+	public ProgressStatus(String currentYear, int active,int completed, Student student, Course course) {
 		super();
 		this.currentYear = currentYear;
 		this.startDate = dateFormat.format(date);
 		this.active = active;
 		this.completed = completed;
 		this.student = student;
+		this.course = course;
 	}
+
 
 	public Long getId() {
 		return id;
@@ -110,6 +114,16 @@ public class ProgressStatus implements Serializable {
 		this.completed = completed;
 	}
 	
+	
+	
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
+	}
+
 	@Override
     public boolean equals(Object o) {
         if (this == o) return true;

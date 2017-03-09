@@ -6,7 +6,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.enrollment.domain.Course;
+import com.enrollment.domain.ProgressStatus;
 import com.enrollment.domain.Subject;
+import com.enrollment.repository.CourseRepository;
+import com.enrollment.repository.ProgressStatusRepository;
 import com.enrollment.repository.SubjectRepository;
 import com.enrollment.service.SubjectService;
 
@@ -15,6 +19,12 @@ public class SubjectServiceImpl implements SubjectService {
 
 	@Autowired
 	private SubjectRepository repo;
+	@Autowired
+	private CourseRepository courseRepo;
+	@Autowired
+	private ProgressStatusRepository statRepo;
+	
+	
 
 	@Override
 	public Subject create(Subject entity) {
@@ -85,5 +95,32 @@ public class SubjectServiceImpl implements SubjectService {
 			return null;
 		else
 			return repo.findBySubjectCode(subjectCode);
+	}
+
+	@Override
+	public List<Subject> readAllSubjects(Long courseID,Long studentID) {
+		List<Subject> subjectList = new ArrayList<Subject>();
+		Course course = courseRepo.findOne(courseID);
+		ProgressStatus status = statRepo.findByActiveAndStudentStudentID(1, studentID);
+		List<Subject> subjects = readAll();
+		if(status.getCourse().getId() == course.getId()){
+			for(Subject subject : subjects){
+				if(subject.getYearCode() == Integer.parseInt(status.getCurrentYear())){
+					subjectList.add(subject);
+				}
+			}
+			return subjectList;
+			
+		}
+		else
+		{
+			for(Subject subject : subjects){
+				if(subject.getYearCode() == 1){
+					subjectList.add(subject);
+				}
+			}
+			return subjectList;
+		}
+		
 	}
 }

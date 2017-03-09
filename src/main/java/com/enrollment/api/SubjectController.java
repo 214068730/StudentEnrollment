@@ -28,13 +28,13 @@ public class SubjectController {
 	public Subject findById(@PathVariable Long id) {
 		return service.readById(id);
 	}
-	
+
 	@RequestMapping(value = "subject/name/{subjectName}", method = RequestMethod.GET)
 	@ResponseBody
 	public Subject findByName(@PathVariable String subjectName) {
 		return service.findBySubjectSubjectName(subjectName);
 	}
-	
+
 	@RequestMapping(value = "subject/code/{subjectCode}", method = RequestMethod.GET)
 	@ResponseBody
 	public Subject findBySubjectCode(@PathVariable String subjectCode) {
@@ -63,8 +63,16 @@ public class SubjectController {
 		return service.readAll();
 	}
 
+	// find subjects by level
+	@RequestMapping(value = "/subject/findAllByLevel/{courseID}/{studentID}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Subject> findSubjectByLevel(@PathVariable Long courseID,@PathVariable Long studentID) {
+		return service.readAllSubjects(courseID, studentID);
+	}
+
 	// delete
-	@RequestMapping(value = "subject/delete/{id}", method ={RequestMethod.GET,RequestMethod.DELETE})
+	@RequestMapping(value = "subject/delete/{id}", method = {
+			RequestMethod.GET, RequestMethod.DELETE })
 	@ResponseStatus(HttpStatus.OK)
 	public void deleteSubject(@PathVariable("id") Long id) {
 		Subject deleteSubject = service.readById(id);

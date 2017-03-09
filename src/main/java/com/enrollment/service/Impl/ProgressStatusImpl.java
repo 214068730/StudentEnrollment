@@ -6,9 +6,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.enrollment.domain.Course;
 import com.enrollment.domain.Department;
 import com.enrollment.domain.ProgressStatus;
 import com.enrollment.domain.Student;
+import com.enrollment.repository.CourseRepository;
 import com.enrollment.repository.ProgressStatusRepository;
 import com.enrollment.repository.StudentRepository;
 import com.enrollment.service.ProgressStatusService;
@@ -20,7 +22,9 @@ public class ProgressStatusImpl implements ProgressStatusService {
 	ProgressStatusRepository repo;
 	@Autowired
 	StudentRepository studentRepo;
-	private ProgressStatus status;
+	@Autowired
+	CourseRepository courseRepo;
+	ProgressStatus status = new ProgressStatus();
 
 	@Override
 	public ProgressStatus create(ProgressStatus entity) {
@@ -53,7 +57,7 @@ public class ProgressStatusImpl implements ProgressStatusService {
 	}
 
 	@Override
-	public ProgressStatus findByActiveAndStudentStudentID(int activate,Long studentID) {
+	public ProgressStatus findByActiveAndStudentStudentID(int activate,Long studentID, Long course) {
 		int active = 1;
 		int completed = 0;
 		if (studentID == null)
@@ -61,31 +65,37 @@ public class ProgressStatusImpl implements ProgressStatusService {
 		else {
 			ProgressStatus activeStatus = repo.findByActiveAndStudentStudentID(activate, studentID);
 			Student student = studentRepo.findOne(studentID);
-			if(activeStatus == null){
-				ProgressStatus deActiveStatus = repo.findByActiveAndStudentStudentID(0, studentID); // finding any record that is not active
-				if(deActiveStatus == null)
-					return repo.save(new ProgressStatus("1",active,completed,student));
-				else
-				{
-					deActiveStatus.setActive(1);
-					return repo.save(deActiveStatus);
-				}	
+			Course resultCourse = courseRepo.findOne(course);
+			
+			if (activeStatus == null) {
+				boolean exist = false;
+				List<ProgressStatus> deActiveStatus = repo.findByStudentStudentIDAndActive(studentID,0); // finding any record that is not active
+				for (ProgressStatus stat : deActiveStatus) {
+					if (resultCourse.getId() == stat.getCourse().getId()) {
+						status = stat;
+						exist = true;
+						break;
+					}
+				}
+				if (exist == true) {
+					status.setActive(1);
+					return repo.save(status);
+				} else
+					return repo.save(new ProgressStatus("1", active, completed,student, resultCourse));
 			}
-			else if(activeStatus.isCompleted() == 0)
+			else if (activeStatus.isCompleted() == 0)
 				return null;
-			else
-			{
-				int oldGrade = Integer.parseInt(status.getCurrentYear());
+			else {
+				int oldGrade = Integer.parseInt(activeStatus.getCurrentYear());
 				int nextGrade = oldGrade + 1;
 				activeStatus.setActive(0);
 				repo.save(activeStatus);
-				
-				//return new grade
-				ProgressStatus newGrade = new ProgressStatus(nextGrade + "",active, completed, student);
+
+				// return new grade
+				ProgressStatus newGrade = new ProgressStatus(nextGrade + "",active, completed, student, resultCourse);
 				return newGrade;
 			}
-				
+
 		}
 	}
-
 }
