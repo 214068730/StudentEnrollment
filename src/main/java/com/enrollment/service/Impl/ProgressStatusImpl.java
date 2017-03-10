@@ -98,4 +98,9 @@ public class ProgressStatusImpl implements ProgressStatusService {
 
 		}
 	}
+	
+	@Override
+	public ProgressStatus findActiveStudent(Long studentID,int active){
+		return repo.findByActiveAndStudentStudentID(active, studentID);
+	}
 }
