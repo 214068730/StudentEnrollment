@@ -92,7 +92,7 @@ public class ProgressStatusImpl implements ProgressStatusService {
 				repo.save(activeStatus);
 
 				// return new grade
-				ProgressStatus newGrade = new ProgressStatus(nextGrade + "",active, completed, student, resultCourse);
+				ProgressStatus newGrade = repo.save(new ProgressStatus(nextGrade + "",active, completed, student, resultCourse));
 				return newGrade;
 			}
 
