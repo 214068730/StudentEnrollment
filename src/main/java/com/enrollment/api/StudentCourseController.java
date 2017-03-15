@@ -30,10 +30,10 @@ public class StudentCourseController {
 		return service.readById(id);
 	}
 	
-	@RequestMapping(value = "studentCourse/register/{studentID}/{courseID}/create", method = RequestMethod.GET)
+	@RequestMapping(value = "studentCourse/register/{studentID}/{courseID}", method = RequestMethod.GET)
 	@ResponseBody
-	public boolean registerStudent(@PathVariable Long studentID,@PathVariable Long courseID,@RequestBody List<Subject> subjects) {
-		return service.registerStudent(subjects, studentID, courseID);
+	public List<StudentCourse> registerStudent(@PathVariable Long studentID,@PathVariable Long courseID) {
+		return service.findByCourseCourseIDAndStudentStudentID(courseID, studentID);
 	}
 
 	// insert

@@ -19,19 +19,22 @@ public class CourseServiceImpl implements CourseService {
 
 	@Override
 	public Course create(Course entity) {
-		boolean exist = false;
-		Iterable<Course> courses = repo.findAll();
-		for (Course course : courses) {
-			if (entity.getCourseCode().equals(course.getCourseCode())) {
-				exist = true;
-				break;
-			}
-		}
-		if (exist == true)
-			return null;
+		if (entity.getId() == null) {
+			Course courseCode = repo.findByCourseCodeIgnoringCase(entity.getCourseCode());
+			if (courseCode == null) {
+				Course courseName = repo.findByCourseNameIgnoringCase(entity.getCourseName());
+				if (courseName == null) 
+					return repo.save(entity);
+				else
+					return null;
+			} 
+			else
+				return null;
+		} 
 		else
-			return repo.save(entity);
+			return null;
 	}
+		
 
 	@Override
 	public Course readById(Long id) {
@@ -56,21 +59,22 @@ public class CourseServiceImpl implements CourseService {
 		if (entity.getId() == null)
 			return null;
 		else {
-			boolean exist = false;
-			Iterable<Course> courses = repo.findAll();
-			for (Course course : courses) {
-				if (entity.getId() != course.getId()) {
-					if (entity.getCourseCode().equals(course.getCourseCode())) {
-						exist = true;
-						break;
+			Course course = repo.findOne(entity.getId());
+			if (course != null) {
+				String courseCode = repo.findCourseCode(entity.getCourseCode(), entity.getId());
+				if (courseCode == null) { //here
+					String courseName = repo.findCourseName(entity.getCourseName(), entity.getId());
+					if (courseName == null) {
+						return repo.save(entity);
 					}
-				}
-			}
-			if (exist == true)
-				return null;
+					else
+						return null;
+				} 
+				else
+					return null;
+			} 
 			else
-				return repo.save(entity);
-
+				return null;
 		}
 	}
 

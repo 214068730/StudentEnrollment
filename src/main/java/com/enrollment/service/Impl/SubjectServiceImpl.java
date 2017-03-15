@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 import com.enrollment.domain.Course;
 import com.enrollment.domain.ProgressStatus;
 import com.enrollment.domain.Subject;
+import com.enrollment.domain.SubjectCourse;
 import com.enrollment.repository.CourseRepository;
 import com.enrollment.repository.ProgressStatusRepository;
+import com.enrollment.repository.SubjectCourseRepository;
 import com.enrollment.repository.SubjectRepository;
 import com.enrollment.service.SubjectService;
 
@@ -23,23 +25,19 @@ public class SubjectServiceImpl implements SubjectService {
 	private CourseRepository courseRepo;
 	@Autowired
 	private ProgressStatusRepository statRepo;
-	
-	
+	@Autowired
+	private SubjectCourseRepository subjectCourseRepo;
 
 	@Override
 	public Subject create(Subject entity) {
-		boolean flag = false;
-		Iterable<Subject> subjects = repo.findAll();
-		for (Subject sub : subjects) {
-			if (entity.getSubjectCode().equals(sub.getSubjectCode())) {
-				flag = true;
-				break;
-			}
-		}
-		if (flag == true)
+		if (entity.getSubjectID() == null) {
+			Subject subject = repo.findBySubjectCode(entity.getSubjectCode());
+			if (subject == null)
+				return repo.save(entity);
+			else
+				return null;
+		} else
 			return null;
-		else
-			return repo.save(entity);
 	}
 
 	@Override
@@ -59,20 +57,17 @@ public class SubjectServiceImpl implements SubjectService {
 
 	@Override
 	public Subject update(Subject entity) {
-		boolean flag = false;
-		Iterable<Subject> subjects = repo.findAll();
-		for (Subject sub : subjects) {
-			if (entity.getSubjectID() != sub.getSubjectID()) {
-				if (entity.getSubjectCode().equals(sub.getSubjectCode())) {
-					flag = true;
-					break;
-				}
-			}
-		}
-		if (flag == true)
+		Subject subject = repo.findOne(entity.getSubjectID());
+		if (subject == null)
 			return null;
-		else
-			return repo.save(entity);
+		else {
+			String subjectCode = repo.findSubjectCode(entity.getSubjectID(),
+					entity.getSubjectCode());
+			if (subjectCode == null) {
+				return repo.save(entity);
+			} else
+				return null;
+		}
 	}
 
 	@Override
@@ -98,29 +93,21 @@ public class SubjectServiceImpl implements SubjectService {
 	}
 
 	@Override
-	public List<Subject> readAllSubjects(Long courseID,Long studentID) {
+	public List<Subject> readAllSubjects(Long courseID, Long studentID) {
 		List<Subject> subjectList = new ArrayList<Subject>();
 		Course course = courseRepo.findOne(courseID);
-		ProgressStatus status = statRepo.findByActiveAndStudentStudentID(1, studentID);
-		List<Subject> subjects = readAll();
-		if(status.getCourse().getId() == course.getId()){
-			for(Subject subject : subjects){
-				if(subject.getYearCode() == Integer.parseInt(status.getCurrentYear())){
+
+		ProgressStatus status = statRepo.findByActiveAndStudentStudentID(1,studentID);
+		List<Subject> subjects = subjectCourseRepo.findCourseID(course.getId());
+
+		for (Subject subject : subjects) {
+			if (subject.getYearCode() == Integer.parseInt(status.getCurrentYear())) {
+				if (status.getCourse().getId() == course.getId()){
 					subjectList.add(subject);
 				}
 			}
-			return subjectList;
-			
 		}
-		else
-		{
-			for(Subject subject : subjects){
-				if(subject.getYearCode() == 1){
-					subjectList.add(subject);
-				}
-			}
-			return subjectList;
-		}
-		
+		return subjectList;
+
 	}
 }

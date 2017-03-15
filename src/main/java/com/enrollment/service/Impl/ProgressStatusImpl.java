@@ -28,7 +28,10 @@ public class ProgressStatusImpl implements ProgressStatusService {
 
 	@Override
 	public ProgressStatus create(ProgressStatus entity) {
-		return repo.save(entity);
+		if(entity.getId() == null)
+			return repo.save(entity);
+		else
+			return null;
 	}
 
 	@Override

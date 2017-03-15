@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.enrollment.domain.Address;
 import com.enrollment.domain.Student;
 import com.enrollment.repository.AddressRepository;
@@ -21,25 +23,18 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public Student create(Student entity) {
-		Iterable<Student> students = repo.findAll();
-		boolean idExist = false;
-
-		if (entity.getStudentID() == null) {
-			for (Student stud : students) {
-				if (entity.getStudentIdNumber().equals(stud.getStudentIdNumber())) {
-					idExist = true;
-					break;
-				}
+		if(entity.getStudentID() == null)
+		{
+		    Student student = repo.findByStudentIdNumber(entity.getStudentIdNumber());
+			if(student == null){
+				addressRepo.save(entity.getStudentAddress()); // update address
+     			return repo.save(entity);
 			}
+			else
+				return null;
 		}
-		if (idExist == true)
+		else
 			return null;
-		else {
-
-			Address address = addressRepo.save(entity.getStudentAddress());
-			entity.setStudentAddress(address);
-			return repo.save(entity);
-		}
 	}
 
 	@Override
@@ -61,25 +56,18 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public Student update(Student entity) {
-		Iterable<Student> students = repo.findAll();
-		boolean idExist = false;
-
-		if (entity.getStudentID() != null) {
-			for (Student stud : students) {
-				if (entity.getStudentID() != stud.getStudentID()) {
-					if (entity.getStudentIdNumber().equals(stud.getStudentIdNumber())) {
-						idExist = true;
-						break;
-					}
-				}
-			}
-		}
-		if (idExist == true)
+		Student student = repo.findOne(entity.getStudentID());
+		if(student == null)
 			return null;
-		else {
-			//
-			addressRepo.save(entity.getStudentAddress()); // update address
-			return repo.save(entity);
+		else
+		{
+			String studentIdNumber = repo.findStudnetID(entity.getStudentID(),entity.getStudentIdNumber());
+			if(studentIdNumber == null){
+				addressRepo.save(entity.getStudentAddress()); // update address
+     			return repo.save(entity);
+			}
+			else
+				return null;
 		}
 	}
 

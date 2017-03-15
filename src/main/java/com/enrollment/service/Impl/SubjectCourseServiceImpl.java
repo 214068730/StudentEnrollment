@@ -20,21 +20,15 @@ public class SubjectCourseServiceImpl implements SubjectCourseService {
 
 	@Override
 	public SubjectCourse create(SubjectCourse entity) {
-		Iterable<SubjectCourse> subjectCourses = repo.findAll();
-		boolean exist = false;
-		for (SubjectCourse subCourse : subjectCourses) {
-			if (entity.getCourse().getId() == subCourse.getCourse().getId()
-					&& entity.getSubject().getSubjectID() == subCourse
-							.getSubject().getSubjectID()) {
-				exist = true;
-				break;
-			}
-
+		if(entity.getId() == null){
+			SubjectCourse subjectCourse = repo.findByCourseCourseIDAndSubjectSubjectID(entity.getCourse().getId(), entity.getSubject().getSubjectID());
+			if(subjectCourse == null)
+				return repo.save(entity);
+			else
+				return null;
 		}
-		if (exist == true)
-			return null;
 		else
-			return repo.save(entity);
+			return null;
 	}
 
 	@Override

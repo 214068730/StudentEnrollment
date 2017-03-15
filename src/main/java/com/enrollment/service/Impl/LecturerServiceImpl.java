@@ -18,7 +18,10 @@ public class LecturerServiceImpl implements LecturerService {
 
 	@Override
 	public Lecturer create(Lecturer entity) {
-		return repo.save(entity);
+		if (entity.getId() == null)
+			return repo.save(entity);
+		else
+			return null;
 	}
 
 	@Override
