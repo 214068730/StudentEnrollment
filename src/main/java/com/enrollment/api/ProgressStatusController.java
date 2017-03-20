@@ -34,14 +34,14 @@ public class ProgressStatusController {
 	//find student enrollment status
 	@RequestMapping(value = "progress/findActive/{studentID}/{active}", method = RequestMethod.GET)
 	@ResponseBody
-	public ProgressStatus findActive(@PathVariable Long studentID,@PathVariable int active) {
+	public ProgressStatus findActive(@PathVariable Long studentID,@PathVariable String active) {
 		return service.findActiveStudent(studentID, active);
 	}
 
 	// find by grade
 	@RequestMapping(value = "/progress/grade/{active}/{studentID}/{courseID}", method = RequestMethod.GET)
 	@ResponseBody
-	public ProgressStatus findByGradeStatus(@PathVariable Long studentID, @PathVariable int active,@PathVariable Long courseID) {
+	public ProgressStatus findByGradeStatus(@PathVariable Long studentID, @PathVariable String active,@PathVariable Long courseID) {
 		return service.findByActiveAndStudentStudentID(active, studentID,courseID);
 	}
 

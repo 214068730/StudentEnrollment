@@ -89,7 +89,7 @@ public class StudentCourseServiceImpl implements StudentCourseService {
 	@Override
 	public boolean registerStudent(List<Subject> subjects, Long studentID,Long courseID) {
 		Boolean created = false;
-		int active = 1;
+		String active = "1";
 		if(studentID == null || courseID == null || subjects.isEmpty() )
 			return false;
 		else

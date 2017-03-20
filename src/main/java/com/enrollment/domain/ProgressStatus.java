@@ -22,14 +22,14 @@ import org.hibernate.annotations.GenericGenerator;
 public class ProgressStatus implements Serializable {
 
 	@Id
-	@GeneratedValue(generator="increment")
-	@GenericGenerator(name="increment", strategy = "increment")
+	@GeneratedValue(generator = "increment")
+	@GenericGenerator(name = "increment", strategy = "increment")
 	private Long id;
 	private String currentYear;
 	private String startDate;
 	private String endDate;
-	private int active;
-	private int completed;
+	private String active;
+	private String completed;
 	@ManyToOne
 	@JoinColumn(name = "studentID")
 	private Student student;
@@ -46,8 +46,8 @@ public class ProgressStatus implements Serializable {
 		this.startDate = dateFormat.format(date);
 	}
 
-	
-	public ProgressStatus(String currentYear, int active,int completed, Student student, Course course) {
+	public ProgressStatus(String currentYear, String active, String completed,
+			Student student, Course course) {
 		super();
 		this.currentYear = currentYear;
 		this.startDate = dateFormat.format(date);
@@ -56,7 +56,6 @@ public class ProgressStatus implements Serializable {
 		this.student = student;
 		this.course = course;
 	}
-
 
 	public Long getId() {
 		return id;
@@ -98,24 +97,25 @@ public class ProgressStatus implements Serializable {
 		this.student = student;
 	}
 
-	public int isActive() {
-		return active;
-	}
-
-	public void setActive(int active) {
+	
+	public void setActive(String active) {
 		this.active = active;
 	}
 
-	public int isCompleted() {
+	
+
+	public String getActive() {
+		return active;
+	}
+
+	public String getCompleted() {
 		return completed;
 	}
 
-	public void setCompleted(int completed) {
+	public void setCompleted(String completed) {
 		this.completed = completed;
 	}
-	
-	
-	
+
 	public Course getCourse() {
 		return course;
 	}
@@ -125,19 +125,21 @@ public class ProgressStatus implements Serializable {
 	}
 
 	@Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
 
-        ProgressStatus progressStatus = (ProgressStatus) o;
+		ProgressStatus progressStatus = (ProgressStatus) o;
 
-        return id == progressStatus.id;
+		return id == progressStatus.id;
 
-    }
+	}
 
-    @Override
-    public int hashCode() {
-        return (int) (id ^ (id >>> 32));
-    }
+	@Override
+	public int hashCode() {
+		return (int) (id ^ (id >>> 32));
+	}
 
 }

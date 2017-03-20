@@ -96,8 +96,7 @@ public class SubjectServiceImpl implements SubjectService {
 	public List<Subject> readAllSubjects(Long courseID, Long studentID) {
 		List<Subject> subjectList = new ArrayList<Subject>();
 		Course course = courseRepo.findOne(courseID);
-
-		ProgressStatus status = statRepo.findByActiveAndStudentStudentID(1,studentID);
+		ProgressStatus status = statRepo.findByActiveAndStudentStudentID("1",studentID);
 		List<Subject> subjects = subjectCourseRepo.findCourseID(course.getId());
 
 		for (Subject subject : subjects) {
